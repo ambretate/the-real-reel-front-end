@@ -1,10 +1,9 @@
 body{
     font-family: "Julius Sans One", sans-serif;
+    background-color: #31363F;;
 }
 
-.signin-container{
-    background-color: #31363F;
-    height: 100vh;
+.signup-container{
     display: flex;
 }
 
@@ -12,66 +11,64 @@ body{
     width: 40%;
     display: flex;
     align-items: center;
+    height: 100vh;
 }
 
-.logo{
-    width: 400px;
-    padding-left: 100px;
-}
-
-.form{
+.form-container{
     display: flex;
     flex-direction: column;
-    width: 40%;
-    color: white;
-}
-
-.form-div{
-    display: flex;
-    flex-direction: column;
+    width: 60%;
     justify-content: center;
     align-items: center;
-    width: 60%;
-}
-
-.form-div h1{
-    text-align: left;
-    font-size: 50px;
-}
-
-.form-div h3{
-    text-align: left;
-    font-size: 20px;
-    font-weight: 200;
-}
-
-.welcome{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin-bottom: 50px;
-    color: white;
 }
 
 .welcome h1{
+    font-size: 50px;
     margin-bottom: 0;
+}
+
+.welcome h3{
+    font-size: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: white;
+}
+
+input#username{
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid white;
+    margin-bottom: 20px;
+}
+
+input#confirmPassword{
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid white;
+    margin-bottom: 20px;
 }
 
 input#email{
     height: 30px;
     border-radius: 20px;
     border: 1px solid white;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 input#password{
     height: 30px;
     border-radius: 20px;
     border: 1px solid white;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.form button{
+.signup-form button{
     background: none;
     border: none;
     font-family: "Julius Sans One", sans-serif;
@@ -81,7 +78,9 @@ input#password{
     margin-bottom: 50px;
 }
 
-.form a{
+.signup-form a{
     color: white;
     text-decoration: none;
 }
+
+
