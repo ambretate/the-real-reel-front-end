@@ -17,7 +17,7 @@ function MainPage() {
             <Link to="/user">See Profile</Link>
           </div>
         </div>
-        <input for="search" type="text" placeholder="SEARCH" />
+        <input htmlFor="search" type="text" placeholder="SEARCH" />
         <button id="search">Go</button>
         <p>BROWSE CATALOG</p>
         <p>VIEW YOUR LISTS</p>

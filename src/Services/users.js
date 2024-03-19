@@ -1,5 +1,5 @@
 import api from "./apiConfig.js";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 export const getUsers = async () => {
   try {

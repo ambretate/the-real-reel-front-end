@@ -1,45 +1,51 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
-import { createUser } from "../../Services/users.js";
+import { createUser } from "../../Services/users.js"
 
 function SignUp() {
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSignUp = (event) => {
-    event.preventDefault();
-    console.log("Sign Up form submitted:", { email, username, password });
 
-    if (password === confirmPassword) {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch("/api/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password }),
+    });
+
+    if (!response.ok) {
+      console.error("Signup failed:", response.statusText);
+      return;
+    }
+
+    const data = await response.json();
+    console.log("Signup successful:", data);
+  };
+  
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+
+    if ( password !== confirmPassword) {
+      console.log("passwords don't match")
+    } else {
       createUser({
-        email: email,
         username: username,
+        email: email,
+
+         // password needs to be transformed into password digest either here or in the createuser function 
         password: password
       })
-      // Clear form fields (optional)
-      setEmail("");
-      setUsername("");
-      setPassword("");
-      setConfirmPassword("");
-    } else {
-      console.log("Password is incorrect")
+    console.log("Sign up form submitted!");
     }
   };
 
-  const [users, setUsers] = useState([]);
-
-  async function fetchUsers() {
-    const allUsers = await createUser();
-    setUsers(allUsers);
-  }
-
-  useEffect(() => {
-    fetchUsers()
-  }, [])
-
+  
   return (
     <div className="signup-container">
       <div className="logo-div">
