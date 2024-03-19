@@ -45,6 +45,7 @@ input#username{
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 20px;
+    color: black;
 }
 
 input#confirmPassword{
@@ -52,6 +53,7 @@ input#confirmPassword{
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 20px;
+    color: black;
 }
 
 input#email{
@@ -59,6 +61,7 @@ input#email{
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 20px;
+    color: black;
 }
 
 input#password{
@@ -66,6 +69,7 @@ input#password{
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 20px;
+    color: black;
 }
 
 .signup-form button{
