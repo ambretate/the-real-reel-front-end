@@ -20,22 +20,6 @@ function SignUp() {
   };
 
   return (
-    <div className="signup-container">
-      <div className="logo-div">
-        <img
-          className="logo"
-          src="https://i.imgur.com/YtDu5o3.png"
-          alt="real-reel-logo"
-        />
-      </div>
-      <div className="form-container">
-      <div className="welcome">
-          <h1>Welcome</h1>
-          <h3>Join Real Reel</h3>
-        </div>
-      <form onSubmit={handleSignUp} className="signup-form">
-
-  return (
     <div>
       <h2>Sign Up</h2>
       <form onSubmit={handleSignUp}>
@@ -87,9 +71,9 @@ function SignUp() {
 
         <p>Already have an account? <Link to="/">Sign In</Link></p>
       </form>
-      </div>
-
     </div>
+
+    
   );
 }
 
