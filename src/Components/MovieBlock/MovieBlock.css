@@ -1,0 +1,30 @@
+#container-MovieBlock {
+    background-color: #31363F;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+}
+
+#img-MovieBlock {
+    
+}
+
+#data-MovieBlock {
+
+}
+
+#title-MovieBlock {
+
+}
+
+#genreDateLength-MovieBlock {
+
+}
+
+#description-MovieBlock {
+
+}
+
+#budget-MovieBlock {
+
+}
