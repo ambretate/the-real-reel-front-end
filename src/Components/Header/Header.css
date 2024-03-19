@@ -1,33 +1,41 @@
 #background-Header {
-    width: 100vw;
-    height: 7rem;
-    background-color: white;
+  width: 100vw;
+  height: 7rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#logoContainer-Header{
-    height: 7rem;
-    width: 7rem;
-    margin: 0 auto;
+#logoContainer-Header {
+  height: 7rem;
+  width: 7rem;
+  margin: 0 auto;
 }
 
 #logo-Header {
-    max-height: 110%;
-    max-width: 110%;
-    transform: translateY(-5%);
+  max-height: 110%;
+  max-width: 110%;
+  transform: translateY(-5%);
 }
 
 #container-Header {
-    width: 40vw;
-    margin: 0 0 0 64vw;
-    
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: end;
-    
-
+  width: 40vw;
+  margin: 0 0 0 64vw;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: end;
 }
 
 #signInButton-Header {
-
+  display: flex;
+  height: 30px;
+  align-items: center;
+  border: none;
+  background-color: white;
+  font-family: "Julius Sans One", sans-serif;
+  cursor: pointer;
+  position: absolute;
+  right: 10%;
 }
