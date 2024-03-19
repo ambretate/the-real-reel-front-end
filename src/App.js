@@ -27,15 +27,15 @@ function App() {
       </Routes>
 
       {/* Components that need the layout overlay */}
-      <Layout>
-        <Routes>
-          <Route
-            path="/home"
-            element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
-          />
-          <Route path="/main" element={<MainPage />} />
-        </Routes>
-      </Layout>
+      
+      <Routes>
+        <Route
+          path="/home"
+          element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
+        />
+        <Route path="/main" element={<Layout><MainPage /></Layout>} />
+      </Routes>
+      
     </>
   );
 }
