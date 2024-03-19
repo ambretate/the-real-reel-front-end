@@ -36,6 +36,13 @@ body{
 
 .form-div h1{
     text-align: left;
+    font-size: 50px;
+}
+
+.form-div h3{
+    text-align: left;
+    font-size: 20px;
+    font-weight: 200;
 }
 
 .welcome{
@@ -51,14 +58,14 @@ body{
 }
 
 input#email{
-    height: 25px;
+    height: 30px;
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 10px;
 }
 
 input#password{
-    height: 25px;
+    height: 30px;
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 30px;
