@@ -5,7 +5,7 @@ import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
 import Timeline from "./Screens/Timeline/Timeline.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
-import './App.css';
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,8 +22,9 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<SignIn handleLogin={handleLogin} />} />
+        <Route path="/sign-up" element={<SignUp />} /> 
       </Routes>
-      
+
       {/* Components that need the layout overlay */}
       <Layout>
         <Routes>
@@ -31,7 +32,6 @@ function App() {
             path="/home"
             element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
           />
-          <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </Layout>
     </>

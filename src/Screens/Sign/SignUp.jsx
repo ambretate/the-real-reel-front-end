@@ -1,7 +1,6 @@
-
 import React, { useState } from "react";
 import "./SignUp.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -20,9 +19,20 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSignUp}>
+    <div className="signup-container">
+      <div className="logo-div">
+        <img
+          className="logo"
+          src="https://i.imgur.com/YtDu5o3.png"
+          alt="real-reel-logo"
+        />
+      </div>
+      <div className="form-container">
+        <div className="welcome">
+          <h1>Welcome</h1>
+          <h3>Join Real Reel</h3>
+        </div>
+        <form onSubmit={handleSignUp} className="signup-form">
         <label htmlFor="email">Email Address:</label>
         <input
           type="email"
@@ -33,7 +43,6 @@ function SignUp() {
           required
         />
         <br />
-
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -43,37 +52,35 @@ function SignUp() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-        <br />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <br />
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          <br />
 
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
+          <button type="submit">Sign Up</button>
 
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          name="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-        <br />
-
-        <button type="submit">Sign Up</button>
-
-        <p>Already have an account? <Link to="/">Sign In</Link></p>
-      </form>
+          <p>
+            Already have an account? <Link to="/">Sign In</Link>
+          </p>
+        </form>
+      </div>
     </div>
-
-    
   );
 }
 
