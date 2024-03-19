@@ -1,5 +1,7 @@
 import React from "react";
 import "./SignIn.css";
+import { Link } from 'react-router-dom';
+import SignUp from './SignUp.jsx';
 
 function SignIn({ handleLogin }) {
   const handleSubmit = (event) => {
@@ -30,7 +32,7 @@ function SignIn({ handleLogin }) {
           <button type="submit">Sign In</button>
           <a href="/forgot-password">Forgot your password?</a>
           <br />
-          Don't have an account? <a href="/sign-up">Sign Up</a>
+          Don't have an account? <Link to="/sign-up">Sign Up</Link>
         </form>
       </div>
     </div>
