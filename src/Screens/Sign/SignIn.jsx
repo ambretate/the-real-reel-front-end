@@ -32,7 +32,7 @@ function SignIn({ handleLogin }) {
           <button type="submit">Sign In</button>
           <a href="/forgot-password">Forgot your password?</a>
           <br />
-          Don't have an account? <Link to="/sign-up">Sign Up</Link>
+          <p>Don't have an account? <Link to="/sign-up">Sign Up</Link></p>
         </form>
       </div>
     </div>
