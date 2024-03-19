@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
 import Timeline from "./Screens/Timeline/Timeline.jsx";
-
 import Header from './Components/Header/Header.jsx';
 import './App.css';
 
