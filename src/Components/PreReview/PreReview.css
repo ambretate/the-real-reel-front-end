@@ -1,0 +1,26 @@
+#mainContainer-PreReview {
+    background-color: #D9D9D9;
+    border-radius: 1rem;
+    width: 80%;
+
+}
+
+#img-PreReview {
+    position: absolute;
+    right: 5%;
+    border-radius: 1rem;
+    height: 80%;
+
+}
+
+#title-PreReview {
+    margin: 2% 20% 1% 30%;
+
+}
+
+#body-PreReview {
+    margin: 2% 20% 1% 30%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+}

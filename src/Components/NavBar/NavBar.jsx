@@ -2,8 +2,9 @@ import React from 'react'
 
 function NavBar() {
   return (
-    <div>
+    <div id="background-NavBar">
       
+
     </div>
   )
 }

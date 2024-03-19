@@ -1,9 +1,12 @@
-import React from 'react'
-
-function MoviePreview() {
+function MoviePreview( {id} ) {
   return (
-    <div>MoviePreview</div>
+    <div id="background-MoviePreview">
+      <img id="image-MoviePreview" src={id.img} alt={id.alt} />
+      <h1 id="title-MoviePreview">{id.title}</h1> 
+      
+
+    </div>
   )
 }
 
-export default MoviePreview
+export default MoviePreview;
