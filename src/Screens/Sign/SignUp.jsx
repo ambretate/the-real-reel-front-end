@@ -35,25 +35,6 @@ function SignUp() {
         </div>
       <form onSubmit={handleSignUp} className="signup-form">
 
-import React, { useState } from 'react';
-
-function SignUp() {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
-  const handleSignUp = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    // Implement your sign-up logic here (e.g., API call, data validation)
-    console.log('Sign Up form submitted:', { email, username, password });
-    // Clear form fields (optional)
-    setEmail('');
-    setUsername('');
-    setPassword('');
-    setConfirmPassword('');
-  };
-
   return (
     <div>
       <h2>Sign Up</h2>
