@@ -2,7 +2,9 @@ import React from 'react'
 
 function Catalog() {
   return (
-    <div>Catalog</div>
+    <div id="mainContainer-Catalog">
+      
+    </div>
   )
 }
 
