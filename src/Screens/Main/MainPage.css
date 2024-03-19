@@ -22,3 +22,28 @@
     width: 60%;
     background-color: #222831;
 }
+
+.user-detail-section{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+.user-details input{
+    margin-top: 50px;
+    margin-left: 10px;
+    width: 50%;
+    height: 25px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+button#search {
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-left: 10px;
+    color: black;
+}

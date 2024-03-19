@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
+import { createUser } from "../../Services/users.js";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -11,12 +12,33 @@ function SignUp() {
   const handleSignUp = (event) => {
     event.preventDefault();
     console.log("Sign Up form submitted:", { email, username, password });
-    // Clear form fields (optional)
-    setEmail("");
-    setUsername("");
-    setPassword("");
-    setConfirmPassword("");
+
+    if (password === confirmPassword) {
+      createUser({
+        email: email,
+        username: username,
+        password: password
+      })
+      // Clear form fields (optional)
+      setEmail("");
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
+    } else {
+      console.log("Password is incorrect")
+    }
   };
+
+  const [users, setUsers] = useState([]);
+
+  async function fetchUsers() {
+    const allUsers = await createUser();
+    setUsers(allUsers);
+  }
+
+  useEffect(() => {
+    fetchUsers()
+  }, [])
 
   return (
     <div className="signup-container">
@@ -33,25 +55,25 @@ function SignUp() {
           <h3>Join Real Reel</h3>
         </div>
         <form onSubmit={handleSignUp} className="signup-form">
-        <label htmlFor="email">Email Address:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+          <label htmlFor="email">Email Address:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <br />
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
           <label htmlFor="password">Password:</label>
           <input
             type="password"
