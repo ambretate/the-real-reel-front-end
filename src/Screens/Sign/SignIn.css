@@ -62,6 +62,7 @@ input#email{
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 30px;
+    color: black;
 }
 
 input#password{
@@ -69,6 +70,7 @@ input#password{
     border-radius: 20px;
     border: 1px solid white;
     margin-bottom: 30px;
+    color: black;
 }
 
 .form button{

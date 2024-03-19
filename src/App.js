@@ -6,6 +6,7 @@ import SignUp from "./Screens/Sign/SignUp.jsx";
 import Timeline from "./Screens/Timeline/Timeline.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
 import "./App.css";
+import MainPage from "./Screens/Main/MainPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,6 +33,7 @@ function App() {
             path="/home"
             element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
           />
+          <Route path="/main" element={<MainPage />} />
         </Routes>
       </Layout>
     </>

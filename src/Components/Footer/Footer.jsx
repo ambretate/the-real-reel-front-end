@@ -2,7 +2,9 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <>
+    <p>Real Reel 2024</p>
+    </>
   )
 }
 
