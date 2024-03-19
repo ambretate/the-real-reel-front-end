@@ -4,7 +4,8 @@ import "./App.css";
 import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
 import Timeline from "./Screens/Timeline/Timeline.jsx";
-import MainPage from "./Screens/Main/MainPage.jsx";
+import Layout from "./Components/Layout/Layout.jsx";
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,25 +19,22 @@ function App() {
   };
 
   return (
+    <>
       <Routes>
-        <Route
-          path="/"
-          element={<SignIn handleLogin={handleLogin} />}
-        />
-        <Route
-          path="/home"
-          element={
-            isLoggedIn ? (
-              <Timeline handleLogout={handleLogout} /> // Pass logout function to Timeline
-            ) : (
-              <Navigate to="/" replace />
-            )
-          }
-        />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/timeline" element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />} />
-        <Route path="/main" element={<MainPage />} /> 
+        <Route path="/" element={<SignIn handleLogin={handleLogin} />} />
       </Routes>
+      
+      {/* Components that need the layout overlay */}
+      <Layout>
+        <Routes>
+          <Route
+            path="/home"
+            element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
+          />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./SignUp.css";
 import { Link } from 'react-router-dom';
@@ -33,6 +34,11 @@ function SignUp() {
           <h3>Join Real Reel</h3>
         </div>
       <form onSubmit={handleSignUp} className="signup-form">
+
+  return (
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSignUp}>
         <label htmlFor="email">Email Address:</label>
         <input
           type="email"
@@ -78,9 +84,11 @@ function SignUp() {
         <br />
 
         <button type="submit">Sign Up</button>
+
         <p>Already have an account? <Link to="/">Sign In</Link></p>
       </form>
       </div>
+
     </div>
   );
 }
