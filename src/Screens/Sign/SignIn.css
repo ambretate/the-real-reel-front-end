@@ -1,0 +1,80 @@
+body{
+    font-family: "Julius Sans One", sans-serif;
+}
+
+.signin-container{
+    background-color: #31363F;
+    height: 100vh;
+    display: flex;
+}
+
+.logo-div{
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    width: 400px;
+    padding-left: 100px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: white;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.form-div h1{
+    text-align: left;
+}
+
+.welcome{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.welcome h1{
+    margin-bottom: 0;
+}
+
+input#email{
+    height: 25px;
+    border-radius: 20px;
+    border: 1px solid white;
+    margin-bottom: 10px;
+}
+
+input#password{
+    height: 25px;
+    border-radius: 20px;
+    border: 1px solid white;
+    margin-bottom: 30px;
+}
+
+.form button{
+    background: none;
+    border: none;
+    font-family: "Julius Sans One", sans-serif;
+    color: white;
+    cursor:pointer;
+    font-size: larger;
+    margin-bottom: 50px;
+}
+
+.form a{
+    color: white;
+    text-decoration: none;
+}
