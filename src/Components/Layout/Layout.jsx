@@ -1,9 +1,20 @@
-import React from 'react'
+import Header from '../Header/Header.jsx';
+import NavBar from '../NavBar/NavBar.jsx';
+import Footer from '../Footer/Footer.jsx';
+import './Layout.css';
 
-function Layout() {
+function Layout(props) {
   return (
-    <div>Layout</div>
+    <div id='container-Layout'>
+      <Header />
+      <NavBar />
+      <div id="body-Layout" >
+          {props.children}
+      </div>
+      <Footer />
+      
+    </div>
   )
 }
 
-export default Layout
+export default Layout;

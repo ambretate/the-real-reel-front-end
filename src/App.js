@@ -5,8 +5,7 @@ import React, { useState } from "react";
 import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
 import Timeline from "./Screens/Timeline/Timeline.jsx";
-
-import Header from './Components/Header/Header.jsx';
+import Layout from "./Components/Layout/Layout.jsx";
 import './App.css';
 
 
@@ -20,16 +19,22 @@ function App() {
   return (
 
     <>
+      
       <Routes>
         <Route path="/" element={<SignIn handleLogin={handleLogin} />} />
       </Routes>
+      
       <Routes>
-        <Route
-          path="/home"
-          element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
-        />
+        
+          <Route
+            path="/home"
+            element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
+          />
+        
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
+      
+         
     </>
   );
 }

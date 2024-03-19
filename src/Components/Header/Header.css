@@ -8,6 +8,7 @@
     height: 7rem;
     width: 7rem;
     margin: 0 auto;
+    z-index: -1;
 }
 
 #logo-Header {
