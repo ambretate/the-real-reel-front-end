@@ -1,3 +1,40 @@
+
+import React, { useState } from "react";
+import "./SignUp.css";
+import { Link } from 'react-router-dom';
+
+function SignUp() {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    console.log("Sign Up form submitted:", { email, username, password });
+    // Clear form fields (optional)
+    setEmail("");
+    setUsername("");
+    setPassword("");
+    setConfirmPassword("");
+  };
+
+  return (
+    <div className="signup-container">
+      <div className="logo-div">
+        <img
+          className="logo"
+          src="https://i.imgur.com/YtDu5o3.png"
+          alt="real-reel-logo"
+        />
+      </div>
+      <div className="form-container">
+      <div className="welcome">
+          <h1>Welcome</h1>
+          <h3>Join Real Reel</h3>
+        </div>
+      <form onSubmit={handleSignUp} className="signup-form">
+
 import React, { useState } from 'react';
 
 function SignUp() {
@@ -66,7 +103,11 @@ function SignUp() {
         <br />
 
         <button type="submit">Sign Up</button>
+
+        <p>Already have an account? <Link to="/">Sign In</Link></p>
       </form>
+      </div>
+
     </div>
   );
 }
