@@ -45,7 +45,7 @@ export const createMovie = async (movieData) => {
 };
 
 export const editMovie = async (id, movieData) => {
-    try {
-        const response
-    }
+    // try {
+    //     const response
+    // }
 }
