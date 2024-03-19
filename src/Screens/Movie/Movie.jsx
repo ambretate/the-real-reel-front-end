@@ -7,9 +7,10 @@ function Movie({ id }) {
   // set states
   const [reviews, setReviews] = useState([]);
   const [recs, setRecs] = useState([]);
+  
   // make function to populate reviews
   useEffect( () => {
-
+    
   }, []);
 
   // make function to populate recommendations

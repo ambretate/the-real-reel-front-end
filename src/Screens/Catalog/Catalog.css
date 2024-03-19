@@ -1,0 +1,9 @@
+#mainContainer-Catalog {
+    background-color: ;
+}
+
+#moviePrevContainer-Catalog {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
