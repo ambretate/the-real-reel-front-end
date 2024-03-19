@@ -1,9 +1,14 @@
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import React, { useState } from "react";
 import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
 import Timeline from "./Screens/Timeline/Timeline.jsx";
+
+import Header from './Components/Header/Header.jsx';
+import './App.css';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,6 +18,7 @@ function App() {
   };
 
   return (
+
     <>
       <Routes>
         <Route path="/" element={<SignIn handleLogin={handleLogin} />} />
