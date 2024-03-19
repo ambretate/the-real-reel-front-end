@@ -1,0 +1,33 @@
+#background-Header {
+    width: 100vw;
+    height: 7rem;
+    background-color: white;
+}
+
+#logoContainer-Header{
+    height: 7rem;
+    width: 7rem;
+    margin: 0 auto;
+}
+
+#logo-Header {
+    max-height: 110%;
+    max-width: 110%;
+    transform: translateY(-5%);
+}
+
+#container-Header {
+    width: 40vw;
+    margin: 0 0 0 64vw;
+    
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: end;
+    
+
+}
+
+#signInButton-Header {
+
+}
