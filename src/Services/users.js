@@ -1,4 +1,5 @@
 import api from "./apiConfig.js";
+import jwtDecode from "jwt-decode";
 
 export const getUsers = async () => {
   try {
@@ -62,3 +63,15 @@ export const deleteUser = async (id) => {
     console.error("Error deleting user", error);
   }
 };
+
+
+export const signUp = async (credentials) => {
+    try {
+        const response = await api.post("/sign-up", credentials);
+        localStorage.setItem("token", response.data.token);
+        const user = jwtDecode(response.data.token);
+        return user;
+    } catch (error) {
+        console.error("Error creating user");
+    }
+}
