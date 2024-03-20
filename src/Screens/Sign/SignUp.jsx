@@ -2,8 +2,7 @@ import { useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { signUp } from "../../Services/users";
-import { render } from "@testing-library/react";
+import { signUp } from "../../Services/users.js";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ const SignUp = (props) => {
     try {
       const user = await signUp(form);
       setUser(user);
-      navigate("/");
+      navigate("/timeline");
     } catch (error) {
       console.error(error);
       setForm({

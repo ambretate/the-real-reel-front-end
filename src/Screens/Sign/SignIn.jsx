@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
-import { getUser } from "../../Services/users.js"; // Using 'signIn' function for authentication
+import { signIn } from "../../Services/users.js"; // Using 'signIn' function for authentication
 import { useNavigate } from "react-router-dom";
 
-function SignIn({ handleLogin }) {
-  const handleSubmit = (event) => {
+function SignIn({ setUser }) {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    isError: false,
+    errorMsg: "",
+  });
+
+  let navigate = useNavigate()
+
+  const handleChange = (event) =>
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleLogin();
+    let retrievedUser = await signIn(form)
+    setUser(retrievedUser)
+    navigate("/timeline")
   };
 
 return (
@@ -24,12 +41,12 @@ return (
         <h1>Welcome</h1>
         <h3>Please Sign In</h3>
       </div>
-      <form className="form">
-        <label for="email">E-mail Address:</label>
-        <input type="email" id="email" name="email" required />
+      <form className="form" onSubmit={handleSubmit}>
+        <label htmlFor="email">E-mail Address:</label>
+        <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required />
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" value={form.password} onChange={handleChange} required />
 
         <button type="submit">Sign In</button>
         <a href="/forgot-password">Forgot your password?</a>
