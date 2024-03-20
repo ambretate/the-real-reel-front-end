@@ -5,7 +5,7 @@ export const getMovies = async () => {
         const response = await api.get("/movies");
         return response.data;
     } catch (error) {
-        console.error("Errog getting all movies", error);
+        console.error("Error getting all movies", error);
     }
 };
 

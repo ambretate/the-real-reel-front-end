@@ -1,8 +1,9 @@
-function MoviePreview( {id} ) {
+function MoviePreview( {item} ) {
+  // console.log('movie prev', item);
   return (
     <div id="background-MoviePreview">
-      <img id="image-MoviePreview" src={id.img} alt={id.alt} />
-      <h1 id="title-MoviePreview">{id.title}</h1> 
+      <img id="image-MoviePreview" src={item.image} alt={item.alt} />
+      <h1 id="title-MoviePreview">{item.title}</h1> 
       
 
     </div>
