@@ -36,6 +36,26 @@ function Movie() {
   // useEffect( () => {
     
   // }, []);
+  function parseDate(d) {
+    let arr = d.split('-');
+    console.log('check the split', arr)
+    const num2date = {
+      '01': 'January',
+      '02': 'Feburary',
+      '03': 'March',
+      '04': 'April',
+      '05': 'May',
+      '06': 'June',
+      '07': 'July',
+      '08': 'August',
+      '09': 'September',
+      '10': 'October',
+      '11': 'November',
+      '12': 'December'
+    }
+    
+    return `${num2date[ arr[1] ]} ${arr[2]} ${arr[0]}`;
+  }
 
   return (
     <div id="mainContain-Movie">
@@ -45,6 +65,7 @@ function Movie() {
         src={movie.image} 
         alt={`${movie.title}'s main poster`} 
       />
+      <p id="dataBullets-Movie">{(movie.releaseDate) ? parseDate( movie.releaseDate ) : null }</p>
       <p id="description-Movie">{movie.description}</p>
       
     </div>
