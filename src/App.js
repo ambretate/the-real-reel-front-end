@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
@@ -7,6 +7,7 @@ import Timeline from "./Screens/Timeline/Timeline.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
 import MainPage from "./Screens/Main/MainPage.jsx";
 import User from "./Screens/User/User.jsx" 
+import Movie from "./Screens/Movie/Movie.jsx"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,7 +17,7 @@ function App() {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Add a logout function to update state
+    setIsLoggedIn(false);
   };
 
   return (
@@ -26,7 +27,6 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} /> 
       </Routes>
 
-      {/* Components that need the layout overlay */}
         <Routes>
           <Route
             path="/home"
@@ -34,6 +34,7 @@ function App() {
           />
            <Route path="/main" element={<Layout><MainPage /></Layout>} />
            <Route path="/user" element={<Layout><User /></Layout>} />
+           <Route path="/movie-detail" element={<Layout><Movie /></Layout>} />
         </Routes>
     </>
   );

@@ -3,7 +3,7 @@ import React from 'react'
 function MovieBlock( { id } ) {
   return (
     <div id="container-MovieBlock">
-        <img id="img-MovieBlock"src={id.img} alt={id.alt} />
+        <img id="img-MovieBlock" src={id.img} alt={id.alt} />
         <h1 id="title-MovieBlock"> {id.title} </h1>
         <h3 id="genreDateLength-MovieBlock"> 
             {id.genre} ‧ 
