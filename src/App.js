@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
@@ -8,6 +8,7 @@ import Layout from "./Components/Layout/Layout.jsx";
 import MainPage from "./Screens/Main/MainPage.jsx";
 import Catalog from "./Screens/Catalog/Catalog.jsx";
 import User from "./Screens/User/User.jsx" 
+import Movie from "./Screens/Movie/Movie.jsx"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,7 +18,7 @@ function App() {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Add a logout function to update state
+    setIsLoggedIn(false);
   };
 
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/main" element={<Layout><MainPage /></Layout>} />
         <Route path="/user" element={<Layout><User /></Layout>} />
         <Route path="/catalog" element={<Layout><Catalog /></Layout>} />
+
 
         </Routes>
     </>

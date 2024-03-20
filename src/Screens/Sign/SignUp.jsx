@@ -1,51 +1,63 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
-import { createUser } from "../../Services/users.js"
+import { useNavigate } from "react-router-dom";
+import { signUp } from "../../Services/users";
+import { render } from "@testing-library/react";
 
-function SignUp() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+const SignUp = (props) => {
+  const navigate = useNavigate();
 
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+    passwordConfirmation: "",
+    isError: false,
+    errorMsg: "",
+  });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const response = await fetch("/api/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, email, password }),
+  const handleChange = (event) =>
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
     });
 
-    if (!response.ok) {
-      console.error("Signup failed:", response.statusText);
-      return;
-    }
-
-    const data = await response.json();
-    console.log("Signup successful:", data);
-  };
-  
-  const handleSignUp = async (event) => {
+  const onSignUp = async (event) => {
     event.preventDefault();
-
-    if ( password !== confirmPassword) {
-      console.log("passwords don't match")
-    } else {
-      createUser({
-        username: username,
-        email: email,
-
-         // password needs to be transformed into password digest either here or in the createuser function 
-        password: password
-      })
-    console.log("Sign up form submitted!");
+    const { setUser } = props;
+    try {
+      const user = await signUp(form);
+      setUser(user);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      setForm({
+        username: "",
+        email: "",
+        password: "",
+        passwordConfirmation: "",
+        isError: true,
+        errorMsg: "Sign Up Details Invalid",
+      });
     }
   };
 
-  
+  const renderError = () => {
+    const toggleForm = form.isError ? "danger" : "";
+    if (form.isError) {
+      return (
+        <button type="submit" className={toggleForm}>
+          {form.errorMsg}
+        </button>
+      );
+    } else {
+      return <button type="submit">Sign Up</button>;
+    }
+  };
+
+  const { username, email, password, passwordConfirmation } = form;
+
   return (
     <div className="signup-container">
       <div className="logo-div">
@@ -60,14 +72,14 @@ function SignUp() {
           <h1>Welcome</h1>
           <h3>Join Real Reel</h3>
         </div>
-        <form onSubmit={handleSignUp} className="signup-form">
+        <form onSubmit={onSignUp} className="signup-form">
           <label htmlFor="email">Email Address:</label>
           <input
             type="email"
             id="email"
             name="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
             required
           />
           <br />
@@ -77,7 +89,7 @@ function SignUp() {
             id="username"
             name="username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={handleChange}
             required
           />
           <label htmlFor="password">Password:</label>
@@ -86,7 +98,7 @@ function SignUp() {
             id="password"
             name="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleChange}
             required
           />
           <br />
@@ -94,15 +106,14 @@ function SignUp() {
           <input
             type="password"
             id="confirmPassword"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            name="passwordConfirmation"
+            value={passwordConfirmation}
+            onChange={handleChange}
             required
           />
+          {renderError()}
           <br />
-
-          <button type="submit">Sign Up</button>
-
+          {/* <button type="submit">Sign Up</button> */}
           <p>
             Already have an account? <Link to="/">Sign In</Link>
           </p>
@@ -110,6 +121,6 @@ function SignUp() {
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;
