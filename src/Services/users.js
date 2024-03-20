@@ -3,13 +3,42 @@ import { jwtDecode } from "jwt-decode";
 
 export const signUp = async (credentials) => {
   try {
-    const resp = await api.post("/sign-up", credentials);
+    const resp = await api.post("/users/sign-up", credentials);
     localStorage.setItem("token", resp.data.token);
     const user = jwtDecode(resp.data.token);
     return user;
   } catch (error) {
     throw error;
   }
+};
+
+export const signIn = async (credentials) => {
+  try {
+    const resp = await api.post("/users/sign-in", credentials);
+    localStorage.setItem("token", resp.data.token);
+    const user = jwtDecode(resp.data.token);
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const signOut = async () => {
+  try {
+    localStorage.removeItem("token");
+    return true;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const verifyUser = async () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const res = await api.get("/users/verify");
+    return res.data;
+  }
+  return false;
 };
 
 export const getUsers = async () => {
@@ -59,7 +88,7 @@ export const createUser = async (userData) => {
 
 export const editUser = async (id, userData) => {
   try {
-    const response = await api.put(`/countries/${id}`, userData);
+    const response = await api.put(`/users/${id}`, userData);
     return response.data;
   } catch (error) {
     console.error("Error updating user", error);
