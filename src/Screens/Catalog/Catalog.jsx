@@ -2,25 +2,25 @@ import {getMovies} from '../../Services/movies.js';
 import { useState, useEffect } from 'react';
 import {NavLink} from 'react-router-dom';
 import MoviePreview from '../../Components/MoviePreview/MoviePreview.jsx';
+import './Catalog.css';
 
 function Catalog() {
   // use states
   const [movies, setMovies] = useState([]);
 
   // populate movies array state on mount
-  
   useEffect(() => {
     const fetchMovies = async () => {
-      const allMovies = await getMovies()
-      setMovies(allMovies)
+      const allMovies = await getMovies();
+      setMovies(allMovies);
       
     }
-    fetchMovies()
+    fetchMovies();
   }, [])
 
 
 
-  console.log('where da movies at', movies[0])
+  // console.log('where da movies at', movies[0])
 
   return (
     <div id="mainContainer-Catalog">
