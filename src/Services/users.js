@@ -1,5 +1,5 @@
 import api from "./apiConfig.js";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 
 export const getUsers = async () => {
   try {
@@ -67,7 +67,7 @@ export const deleteUser = async (id) => {
 
 export const signUp = async (credentials) => {
     try {
-        const response = await api.post("/sign-up", credentials);
+        const response = await api.post("/users", credentials);
         localStorage.setItem("token", response.data.token);
         const user = jwtDecode(response.data.token);
         return user;
