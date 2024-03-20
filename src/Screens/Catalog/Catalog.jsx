@@ -17,11 +17,11 @@ function Catalog() {
       <h1 id="mainTitle-Catalog"> Movie Catalog </h1>
       
       <div id="moviePrevContainer-Catalog">
-        {movies.map( (item, idx) => (
+        {/* {movies.map( (item, idx) => (
           <NavLink to={`/movies/${item.id}`}>
             <MoviePreview id={item} key={idx} />
           </NavLink>
-        ))}
+        ))} */}
       </div>
       
     </div>
