@@ -2,7 +2,11 @@ import axios from "axios";
 
 const getToken = () => {
   return new Promise((resolve) => {
-    resolve(`Bearer ${localStorage.getItem("token") || null}`);
+    if (localStorage.getItem("token")) {
+      resolve(`Bearer ${localStorage.getItem("token")}`);
+    } else {
+      resolve(null)
+    }
   });
 };
 
@@ -15,7 +19,10 @@ const api = axios.create({
 
   api.interceptors.request.use(
     async function (config) {
-      config.headers["Authorization"] = await getToken();
+      const token = await getToken()
+      if (token) {
+        config.headers["Authorization"] = await getToken();
+      }
       return config;
     },
     function (error) {

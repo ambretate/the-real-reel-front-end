@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import SignIn from "./Screens/Sign/SignIn.jsx";
@@ -7,36 +7,60 @@ import Timeline from "./Screens/Timeline/Timeline.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
 import MainPage from "./Screens/Main/MainPage.jsx";
 import Catalog from "./Screens/Catalog/Catalog.jsx";
-import User from "./Screens/User/User.jsx" 
-import Movie from "./Screens/Movie/Movie.jsx"
+import User from "./Screens/User/User.jsx";
+import { verifyUser } from "./Services/users.js";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await verifyUser();
+      user ? setUser(user) : setUser(null);
+    };
+    fetchUser();
+  }, []);
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  // };
+
+  // const handleLogout = () => {
+  //   setIsLoggedIn(false);
+  // };
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<SignIn handleLogin={handleLogin} />} />
-        <Route path="/sign-up" element={<SignUp />} /> 
-        {/* Components that need the layout overlay */}
+        <Route path="/" element={<SignIn setUser={setUser} />} />
+        <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
         <Route
-          path="/home"
-          element={isLoggedIn ? <Timeline /> : <Navigate to="/" replace />}
+          path="/timeline"
+          element={
+              <Layout>
+                <MainPage />{" "}
+              </Layout>
+          }
         />
-        <Route path="/main" element={<Layout><MainPage /></Layout>} />
-        <Route path="/user" element={<Layout><User /></Layout>} />
-        <Route path="/catalog" element={<Layout><Catalog /></Layout>} />
-
-
-        </Routes>
+        <Route
+          path="/user"
+          element={
+            <Layout>
+              <User />
+            </Layout>
+          }
+        />
+        <Route
+          path="/catalog"
+          element={
+            <Layout>
+              <Catalog />
+            </Layout>
+          }
+        />
+      </Routes>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import api from "./apiConfig.js";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 export const signUp = async (credentials) => {
   try {
@@ -35,7 +35,7 @@ export const signOut = async () => {
 export const verifyUser = async () => {
   const token = localStorage.getItem("token");
   if (token) {
-    const res = await api.get("/verify");
+    const res = await api.get("/users/verify");
     return res.data;
   }
   return false;
