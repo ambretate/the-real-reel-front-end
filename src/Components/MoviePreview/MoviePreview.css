@@ -1,14 +1,15 @@
 #background-MoviePreview {
+    position: relative;
     width: 10rem;
-    background-color: #D9D9D9;
+    /* background-color: #D9D9D9; */
     border-radius: 1rem;
 
 }
 
 #image-MoviePreview {
     border-radius: 1rem;
-    width: 9rem;
-    margin: 0.5rem;
+    width: 10rem;
+    
 
 }
 
