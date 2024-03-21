@@ -1,26 +1,32 @@
 #mainContainer-PreReview {
-    background-color: #D9D9D9;
+    position: relative;
+    background-color: #868686;
     border-radius: 1rem;
     width: 80%;
-
+    display: flex;
+    flex-flow: row wrap;
+    
 }
 
-#img-PreReview {
+#leftContainer-PreReview{
    
-    right: 5%;
+}
+
+#rightContainer-PreReview{
+   
+    
+}
+#movieImage-PreReview {
     border-radius: 1rem;
-    height: 80%;
+    height: 8rem;
+    margin: 1rem;
 
 }
 
 #title-PreReview {
-    margin: 2% 20% 1% 30%;
-
+   
 }
 
 #body-PreReview {
-    margin: 2% 20% 1% 30%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden; 
+   
 }
