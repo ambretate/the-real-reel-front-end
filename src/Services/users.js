@@ -8,7 +8,7 @@ export const signUp = async (credentials) => {
     const user = jwtDecode(resp.data.token);
     return user;
   } catch (error) {
-    throw error;
+    throw error("Error signing up: ", error);
   }
 };
 
@@ -19,7 +19,7 @@ export const signIn = async (credentials) => {
     const user = jwtDecode(resp.data.token);
     return user;
   } catch (error) {
-    throw error;
+    throw error("Error signing in: ", error);
   }
 };
 
@@ -28,7 +28,7 @@ export const verifyUser = async () => {
     const resp = await api.get("/users/verify");
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error verifying user: ", error);
   }
 };
 
@@ -37,7 +37,7 @@ export const getFollows = async () => {
     const resp = await api.get("/users/follows");
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error getting follows: ", error);
   }
 };
 
@@ -46,7 +46,7 @@ export const getUserTimeline = async () => {
     const resp = await api.get("/users/timeline");
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error getting timeline: ", error);
   }
 };
 
@@ -55,7 +55,7 @@ export const updateFollowings = async (followedUserId) => {
     const resp = await api.put(`/users/follow/${followedUserId}`);
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error updating followings: ", error);
   }
 };
 
@@ -64,7 +64,7 @@ export const getUsers = async () => {
     const resp = await api.get("/users");
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error getting users: ", error);
   }
 };
 
@@ -73,7 +73,7 @@ export const getUserByEmail = async (email) => {
     const resp = await api.get(`/users/email/${email}`);
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error getting user by email: ", error);
   }
 };
 
@@ -82,7 +82,7 @@ export const getUserByUsername = async (username) => {
     const resp = await api.get(`/username/${username}`);
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error getting user by username: ", error);
   }
 };
 
@@ -91,7 +91,7 @@ export const getUser = async (id) => {
     const resp = await api.get(`/users/${id}`);
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error getting user: ", error);
   }
 };
 
@@ -100,7 +100,7 @@ export const updateUser = async (id, updatedUserData) => {
     const resp = await api.put(`/users/${id}`, updatedUserData);
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error updating user: ", error);
   }
 };
 
@@ -109,6 +109,6 @@ export const deleteUser = async (id) => {
     const resp = await api.delete(`/users/${id}`);
     return resp.data;
   } catch (error) {
-    throw error;
+    throw error("Error deleting user: ", error);
   }
 };
