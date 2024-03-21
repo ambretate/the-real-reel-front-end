@@ -17,18 +17,20 @@ function Catalog() {
     fetchMovies();
   }, []);
 
-  console.log(movies)
-
   return (
     <div id="mainContainer-Catalog">
       <h1 id="mainTitle-Catalog"> Movie Catalog </h1>
 
       <div id="moviePrevContainer-Catalog">
-        {movies.map((movie) => (
-          <NavLink to={`/movies/${movie._id}`} key={movie._id}>
-            <MoviePreview item={movie} />
+        {
+          (movies) ?
+          movies.map((item, idx) => (
+          <NavLink to={`/catalog/${item._id}`} key={idx}>
+            <MoviePreview movie={item} key={idx} />
           </NavLink>
-        ))}
+        ))
+        :null
+        }
       </div>
     </div>
   );

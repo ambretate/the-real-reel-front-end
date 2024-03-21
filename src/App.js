@@ -32,7 +32,7 @@ function App() {
           path="/timeline"
           element={
             <Layout>
-              <MainPage />{" "}
+              <MainPage user={user}/>{" "}
             </Layout>
           }
         />
