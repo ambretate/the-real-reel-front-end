@@ -26,6 +26,9 @@ export const signIn = async (credentials) => {
 export const verifyUser = async () => {
   try {
     const resp = await api.get("/users/verify");
+    localStorage.getItem("token", resp.data.token);
+    const user = jwtDecode(resp.data.token);
+    return user;
     return resp.data;
   } catch (error) {
     throw error;
@@ -35,6 +38,9 @@ export const verifyUser = async () => {
 export const getFollows = async () => {
   try {
     const resp = await api.get("/users/follows");
+    localStorage.getItem("token", resp.data.token);
+    const user = jwtDecode(resp.data.token);
+    return user;
     return resp.data;
   } catch (error) {
     throw error;
@@ -44,6 +50,9 @@ export const getFollows = async () => {
 export const getUserTimeline = async () => {
   try {
     const resp = await api.get("/users/timeline");
+    localStorage.getItem("token", resp.data.token);
+    const user = jwtDecode(resp.data.token);
+    return user;
     return resp.data;
   } catch (error) {
     throw error;
@@ -53,6 +62,9 @@ export const getUserTimeline = async () => {
 export const updateFollowings = async (followedUserId) => {
   try {
     const resp = await api.put(`/users/follow/${followedUserId}`);
+    localStorage.getItem("token", resp.data.token);
+    const user = jwtDecode(resp.data.token);
+    return user;
     return resp.data;
   } catch (error) {
     throw error;
