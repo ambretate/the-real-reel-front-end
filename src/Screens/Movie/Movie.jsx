@@ -6,6 +6,7 @@ import MoviePreview from '../../Components/MoviePreview/MoviePreview.jsx';
 import Header from '../../Components/Header/Header.jsx';
 import Footer from '../../Components/Footer/Footer.jsx';
 import { getMovie } from '../../Services/movies.js';
+import { parseDate } from '../../Services/conversions.js';
 import './Movie.css';
 
 function Movie() {
@@ -28,57 +29,12 @@ function Movie() {
     
     fetchMovie();
   }, [id]);
-
-  //its movie.movie :)
-  console.log('title reviews', movie, reviews);
-
-
+  
   // make function to populate recommendations, post MVP
   // useEffect( () => {
     
   // }, []);
-  function parseDate(d) {
-    let arr = d.split('-');
-    //console.log('check the split', arr)
-    
-    // object table for month conversion
-    const num2date = {
-      '01': 'January',
-      '02': 'Feburary',
-      '03': 'March',
-      '04': 'April',
-      '05': 'May',
-      '06': 'June',
-      '07': 'July',
-      '08': 'August',
-      '09': 'September',
-      '10': 'October',
-      '11': 'November',
-      '12': 'December'
-    }
 
-    // function to add st rd and so on
-    const appendDay =  function(day) {
-      const arr = day.split('');
-      let answer = '';
-      switch (arr[arr.length-1]) {
-        case '1': 
-          answer = 'st';
-          break;
-        case '2':
-          answer = 'nd';
-          break;
-        case '3':
-          answer = 'rd';
-          break;
-        default:
-          answer = 'th';
-      }
-      return answer;
-    }
-
-    return `${num2date[ arr[1] ]} ${arr[2]}${appendDay(arr[2])} ${arr[0]}`;
-  }
     
   // we should add a back button here to nav back to the main Catalog
   return (
@@ -95,6 +51,12 @@ function Movie() {
               : null }
         </p>
         <p id="description-Movie">{movie.description}</p>
+
+        {
+          reviews.map( (item, idx) => (
+            <PreReview movie={item} review={reviews[idx]} key={idx} />
+          ))
+        }
       <Footer />
     </div>
   )
