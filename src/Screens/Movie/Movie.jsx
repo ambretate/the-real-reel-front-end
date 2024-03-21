@@ -17,7 +17,6 @@ function Movie({ id }) {
         setLoading(false);
       }
     };
-
     fetchMovieData();
   }, [id]);
 

@@ -53,7 +53,9 @@ function App() {
           }
         />
 
+
         <Route path="catalog/:id" element={<Movie />} />
+
       </Routes>
     </>
   );
