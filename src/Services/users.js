@@ -118,5 +118,5 @@ export const deleteUser = async (id) => {
     return resp.data;
   } catch (error) {
     throw error("Error deleting user: ", error);
-  }
+  } 
 };
