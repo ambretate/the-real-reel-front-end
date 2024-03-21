@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import MovieBlock from '../../Components/MovieBlock/MovieBlock.jsx';
 import PreReview from '../../Components/PreReview/PreReview.jsx';
 import MoviePreview from '../../Components/MoviePreview/MoviePreview.jsx';
-import { getReviews } from '../../Services/reviews.js';
+import Header from '../../Components/Header/Header.jsx';
+import Footer from '../../Components/Footer/Footer.jsx';
 import { getMovie } from '../../Services/movies.js';
 import './Movie.css';
 
@@ -59,18 +60,19 @@ function Movie() {
 
   return (
     <div id="mainContain-Movie">
-      <h1 id="title-Movie">{movie.title}</h1>  
-      <img 
-        id="image-Movie"
-        src={movie.image} 
-        alt={`${movie.title}'s main poster`} 
-      />
-      <p id="dataBullets-Movie">{(movie.releaseDate) ? 
-            `Release Date: ${parseDate( movie.releaseDate )}` 
-            : null }
-      </p>
-      <p id="description-Movie">{movie.description}</p>
-      
+      <Header/>
+        <h1 id="title-Movie">{movie.title}</h1>  
+        <img 
+          id="image-Movie"
+          src={movie.image} 
+          alt={`${movie.title}'s main poster`} 
+        />
+        <p id="dataBullets-Movie">{(movie.releaseDate) ? 
+              `Release Date: ${parseDate( movie.releaseDate )}` 
+              : null }
+        </p>
+        <p id="description-Movie">{movie.description}</p>
+      <Footer />
     </div>
   )
 }

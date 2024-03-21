@@ -1,7 +1,19 @@
-.footer{
-    position: absolute;
-    bottom: 0;
+#background-Footer {
+    background-color:#76ABAE ;
+    position: fixed;
+    bottom: 0%;
+    height: 8%;
     width: 100%;
-    text-align: end;
-    background-color: #76ABAE;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    justify-content: center;
+    
+    
+}
+
+#brand-Footer {
+   margin: 0 1rem;
+    
 }
