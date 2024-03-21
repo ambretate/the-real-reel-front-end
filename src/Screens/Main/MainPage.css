@@ -7,7 +7,7 @@
 }
 
 .user-details{
-    width: 40%;
+    width: 30%;
     height: 80.5vh;
     background-color: #31363F;
 }
@@ -19,7 +19,7 @@
 }
 
 .timeline-container{
-    width: 60%;
+    width: 70%;
     background-color: #222831;
 }
 
@@ -31,19 +31,36 @@ a{
     text-decoration: none;
 }
 
+.user-detail.section{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.user-detail.section2{
+    margin-bottom: 10px
+}
+
 .user-details input{
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 10px;
-    width: 50%;
+    width: 80%;
     height: 25px;
-    border-radius: 10px;
-    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid black;
+    color: black;
+    background-color: aliceblue;
 }
 
 button#search {
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid white;
-    margin-left: 10px;
+    height: 29px;
+    border: 1px solid black;
     color: black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: aliceblue;
+}
+
+.browse-catalog{
+    padding-left: 10px
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import "./MainPage.css";
 import { Link } from "react-router-dom";
+import Timeline from "../Timeline/Timeline.jsx";
+
 
 function MainPage({ user }) {
   return (
@@ -12,18 +14,25 @@ function MainPage({ user }) {
             alt="empty img"
             className="empty-user-img"
           />
+          {
+            user ?
           <div className="user-detail-section2">
-            <h2>{user.username}</h2>
-            <Link to="/user">See Profile</Link>
+            <h2>Hello, {user.username}</h2>
+            <Link to="/user">Go to Profile</Link>
           </div>
+          :
+          <div>You need to log in!</div>
+          }
         </div>
-        <input htmlFor="search" type="text" placeholder="SEARCH" />
+        <input className="searchbar" htmlFor="search" type="text" placeholder="SEARCH" />
         <button id="search">Go</button>
-        <p>BROWSE CATALOG</p>
-        <p>VIEW YOUR LISTS</p>
+        <p>
+          <Link to="/catalog" className="browse-catalog">Browse Catalog</Link>
+        </p>
+        {/* <p>VIEW YOUR LISTS</p> */}
       </div>
       <div className="timeline-container">
-        <p>hello</p>
+        <Timeline />
       </div>
     </div>
   );
