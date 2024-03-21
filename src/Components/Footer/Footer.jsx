@@ -2,9 +2,9 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <>
-    <p>Real Reel 2024</p>
-    </>
+    <div id='background-Footer'>
+      <p id='brand-Footer'>Real Reel 2024</p>
+    </div>
   )
 }
 

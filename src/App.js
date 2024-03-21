@@ -8,6 +8,7 @@ import Layout from "./Components/Layout/Layout.jsx";
 import MainPage from "./Screens/Main/MainPage.jsx";
 import Catalog from "./Screens/Catalog/Catalog.jsx";
 import User from "./Screens/User/User.jsx";
+import Movie from "./Screens/Movie/Movie.jsx";
 import { verifyUser } from "./Services/users.js";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SignIn setUser={setUser} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
+        
         <Route
           path="/timeline"
           element={
@@ -60,6 +62,11 @@ function App() {
             </Layout>
           }
         />
+        <Route 
+          path="catalog/:id"
+          element={ <Movie/> }
+        />
+        
       </Routes>
     </>
   );

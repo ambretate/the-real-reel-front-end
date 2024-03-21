@@ -18,6 +18,7 @@ function Catalog() {
     fetchMovies();
   }, [])
 
+  if(movies) {console.log('huh ok',movies)}
 
 
   // console.log('where da movies at', movies[0])
@@ -31,8 +32,8 @@ function Catalog() {
           (movies) ?
           movies.map( (item, idx) => (
             
-            <NavLink to={`/movies/${item._id}`}>
-              <MoviePreview item={item} key={idx} />
+            <NavLink to={`/catalog/${item._id}`} key={idx}>
+              <MoviePreview movie={item} key={idx} />
             </NavLink>
           ))
           : null
