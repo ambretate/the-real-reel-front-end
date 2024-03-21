@@ -2,7 +2,7 @@ import React from "react";
 import "./MainPage.css";
 import { Link } from "react-router-dom";
 
-function MainPage() {
+function MainPage({ user }) {
   return (
     <div className="main-container">
       <div className="user-details">
@@ -13,7 +13,7 @@ function MainPage() {
             className="empty-user-img"
           />
           <div className="user-detail-section2">
-            <h2>USERNAME</h2>
+            <h2>{user.username}</h2>
             <Link to="/user">See Profile</Link>
           </div>
         </div>

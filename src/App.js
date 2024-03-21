@@ -32,7 +32,7 @@ function App() {
           path="/timeline"
           element={
             <Layout>
-              <MainPage />{" "}
+              <MainPage user={user}/>{" "}
             </Layout>
           }
         />
@@ -53,9 +53,7 @@ function App() {
           }
         />
 
-
         <Route path="catalog/:id" element={<Movie />} />
-
       </Routes>
     </>
   );
