@@ -2,6 +2,7 @@ import React from "react";
 import "./MainPage.css";
 import { Link } from "react-router-dom";
 import Timeline from "../Timeline/Timeline.jsx";
+import SearchBar from "../../Components/Search/Search";
 
 
 function MainPage({ user }) {
@@ -24,8 +25,7 @@ function MainPage({ user }) {
           <div>You need to log in!</div>
           }
         </div>
-        <input className="searchbar" htmlFor="search" type="text" placeholder="SEARCH" />
-        <button id="search">Go</button>
+        <SearchBar />
         <p>
           <Link to="/catalog" className="browse-catalog">Browse Catalog</Link>
         </p>
