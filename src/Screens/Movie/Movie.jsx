@@ -65,7 +65,10 @@ function Movie() {
         src={movie.image} 
         alt={`${movie.title}'s main poster`} 
       />
-      <p id="dataBullets-Movie">{(movie.releaseDate) ? parseDate( movie.releaseDate ) : null }</p>
+      <p id="dataBullets-Movie">{(movie.releaseDate) ? 
+            `Release Date: ${parseDate( movie.releaseDate )}` 
+            : null }
+      </p>
       <p id="description-Movie">{movie.description}</p>
       
     </div>
