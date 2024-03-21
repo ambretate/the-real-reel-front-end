@@ -39,7 +39,9 @@ function Movie() {
   // }, []);
   function parseDate(d) {
     let arr = d.split('-');
-    console.log('check the split', arr)
+    //console.log('check the split', arr)
+    
+    // object table for month conversion
     const num2date = {
       '01': 'January',
       '02': 'Feburary',
@@ -54,10 +56,31 @@ function Movie() {
       '11': 'November',
       '12': 'December'
     }
-    
-    return `${num2date[ arr[1] ]} ${arr[2]} ${arr[0]}`;
-  }
 
+    // function to add st rd and so on
+    const appendDay =  function(day) {
+      const arr = day.split('');
+      let answer = '';
+      switch (arr[arr.length-1]) {
+        case '1': 
+          answer = 'st';
+          break;
+        case '2':
+          answer = 'nd';
+          break;
+        case '3':
+          answer = 'rd';
+          break;
+        default:
+          answer = 'th';
+      }
+      return answer;
+    }
+
+    return `${num2date[ arr[1] ]} ${arr[2]}${appendDay(arr[2])} ${arr[0]}`;
+  }
+    
+  
   return (
     <div id="mainContain-Movie">
       <Header/>
