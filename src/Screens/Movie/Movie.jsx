@@ -11,7 +11,7 @@ import './Movie.css';
 function Movie() {
   // get id with useParams
   const { id } = useParams();
-  console.log('print params', id);
+  // console.log('print params', id);
 
   // set states
   const [movie, setMovie ] = useState({});
