@@ -80,7 +80,7 @@ function Movie() {
     return `${num2date[ arr[1] ]} ${arr[2]}${appendDay(arr[2])} ${arr[0]}`;
   }
     
-  
+  // we should add a back button here to nav back to the main Catalog
   return (
     <div id="mainContain-Movie">
       <Header/>
