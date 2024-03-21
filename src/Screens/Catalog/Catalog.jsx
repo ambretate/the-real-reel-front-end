@@ -15,6 +15,7 @@ function Catalog() {
       setMovies(allMovies);
     };
     fetchMovies();
+
   }, []);
 
   return (
@@ -27,6 +28,7 @@ function Catalog() {
             <MoviePreview item={movie} />
           </NavLink>
         ))}
+
       </div>
     </div>
   );

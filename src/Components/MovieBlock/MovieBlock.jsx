@@ -1,17 +1,15 @@
-import React from 'react'
-
-function MovieBlock( { id } ) {
+function MovieBlock( { movie } ) {
   return (
     <div id="container-MovieBlock">
-        <img id="img-MovieBlock" src={id.img} alt={id.alt} />
-        <h1 id="title-MovieBlock"> {id.title} </h1>
+        <img id="img-MovieBlock" src={movie.img} alt={movie.alt} />
+        <h1 id="title-MovieBlock"> {movie.title} </h1>
         <h3 id="genreDateLength-MovieBlock"> 
-            {id.genre} ‧ 
-            {id.releaseDate} ‧ 
-            {id.runtime}
+            {movie.genre} ‧ 
+            {movie.releaseDate} ‧ 
+            {movie.runtime}
         </h3>
-        <p id="description-MovieBlock"> {id.description} </p>
-        <p id="budget-MovieBlock"> {id.budget} </p>
+        <p id="description-MovieBlock"> {movie.description} </p>
+        <p id="budget-MovieBlock"> {movie.budget} </p>
     </div>
   )
 }
