@@ -29,7 +29,6 @@ export const verifyUser = async () => {
     localStorage.getItem("token", resp.data.token);
     const user = jwtDecode(resp.data.token);
     return user;
-    return resp.data;
   } catch (error) {
     throw error("Error verifying user: ", error);
   }
@@ -41,7 +40,6 @@ export const getFollows = async () => {
     localStorage.getItem("token", resp.data.token);
     const user = jwtDecode(resp.data.token);
     return user;
-    return resp.data;
   } catch (error) {
     throw error("Error getting follows: ", error);
   }
@@ -53,7 +51,6 @@ export const getUserTimeline = async () => {
     localStorage.getItem("token", resp.data.token);
     const user = jwtDecode(resp.data.token);
     return user;
-    return resp.data;
   } catch (error) {
     throw error("Error getting timeline: ", error);
   }
@@ -65,7 +62,6 @@ export const updateFollowings = async (followedUserId) => {
     localStorage.getItem("token", resp.data.token);
     const user = jwtDecode(resp.data.token);
     return user;
-    return resp.data;
   } catch (error) {
     throw error("Error updating followings: ", error);
   }
@@ -122,5 +118,5 @@ export const deleteUser = async (id) => {
     return resp.data;
   } catch (error) {
     throw error("Error deleting user: ", error);
-  }
+  } 
 };
