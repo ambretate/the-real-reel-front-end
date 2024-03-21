@@ -29,6 +29,29 @@ function Movie({ id }) {
     return <div>Error: {error.message}</div>;
   }
 
+  // function to add st rd and so on
+  const appendDay = function (day) {
+    const arr = day.split("");
+    let answer = "";
+    switch (arr[arr.length - 1]) {
+      case "1":
+        answer = "st";
+        break;
+      case "2":
+        answer = "nd";
+        break;
+      case "3":
+        answer = "rd";
+        break;
+      default:
+        answer = "th";
+    }
+    return answer;
+  };
+
+  return `${num2date[arr[1]]} ${arr[2]}${appendDay(arr[2])} ${arr[0]}`;
+
+  // we should add a back button here to nav back to the main Catalog
   return (
     <div id="mainContain-Movie">
       {movie && (

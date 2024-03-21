@@ -2,6 +2,18 @@
     background-color: #31363F;
 }
 
+#title-Movie{
+    text-align: center;
+}
+
+#image-Movie {
+    width: 12rem;
+    margin: 4rem;
+}
+
+#description-Movie {
+    
+}
 
 #reviews-Movie {
 

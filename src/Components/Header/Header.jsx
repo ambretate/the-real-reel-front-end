@@ -5,6 +5,7 @@ import './Header.css';
 
 function Header({ isLoggedIn, handleLogin, handleLogout }) {
   const loginButtonText = isLoggedIn ? 'Sign Out' : 'Sign In'; 
+  const homePath = isLoggedIn ? '/timeline' : '/';
 
   const handleButtonClick = () => {
     isLoggedIn ? handleLogout() : handleLogin(); 
@@ -12,7 +13,11 @@ function Header({ isLoggedIn, handleLogin, handleLogout }) {
 
   return (
     <div id="background-Header">
-      <img id="logo-Header" src={logo} alt="The Real Reel logo" />
+      <div id="logoContainer-Header">
+        <Link to={homePath}>
+          <img id="logo-Header" src={logo} alt="The Real Reel logo" />
+        </Link>
+      </div>
       {isLoggedIn ? (
         <button id="signInButton-Header" onClick={handleButtonClick}>
           {loginButtonText}
