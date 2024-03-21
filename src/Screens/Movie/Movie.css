@@ -1,14 +1,16 @@
 #mainContain-Movie {
     background-color: #31363F;
+    margin: 0 0 8rem 0;
 }
 
 #title-Movie{
     text-align: center;
+    margin: 1rem auto;
 }
 
 #image-Movie {
     width: 12rem;
-    margin: 4rem;
+    margin: 4rem;   
 }
 
 #description-Movie {

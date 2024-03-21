@@ -1,12 +1,28 @@
-#container-MovieBlock {
+#mainContainer-MovieBlock {
+    height: 15rem;
+    width: 100vw;
     background-color: #31363F;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-around;
+    align-items: center;
+}
+
+#imgContainer-MovieBlock {
+    height: 80%;
+}
+
+#movieInfo-MovieBlock {
+   
+    height: 80%;
+    width: 80%;
 }
 
 #img-MovieBlock {
-    
+    border-radius: 1rem;
+    height: 100%;
+    object-fit: cover;
+
 }
 
 #data-MovieBlock {
