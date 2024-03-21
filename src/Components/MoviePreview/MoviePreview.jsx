@@ -2,6 +2,7 @@ import './MoviePreview.css';
 
 function MoviePreview( {movie} ) {
   // console.log('movie prev', item);
+  console.log(movie)
   return (
     <div id="background-MoviePreview">
       {/* <h1 id="title-MoviePreview">{item.title}</h1>  */}

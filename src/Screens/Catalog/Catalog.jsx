@@ -17,6 +17,8 @@ function Catalog() {
     fetchMovies();
   }, []);
 
+  console.log(movies)
+
   return (
     <div id="mainContainer-Catalog">
       <h1 id="mainTitle-Catalog"> Movie Catalog </h1>
