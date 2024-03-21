@@ -13,7 +13,7 @@ const getToken = () => {
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
-    ? "https://sei-products-api.herokuapp.com/api"
+    ? "https://the-real-reel-b0aef915d682.herokuapp.com/api"
     : "http://localhost:3017/api",
   })
 
