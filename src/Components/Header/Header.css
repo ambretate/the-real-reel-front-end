@@ -19,7 +19,7 @@
   max-height: 120%;
   max-width: 120%;
   transform: translateY(-5%);
-  
+  padding-left: 100px
 }
 
 #container-Header {
@@ -34,7 +34,6 @@
 #signInButton-Header {
   display: flex;
   height: 30px;
-  align-items: center;
   border: none;
   background-color: white;
   font-family: "Julius Sans One", sans-serif;
@@ -42,4 +41,13 @@
   position: absolute;
   right: 10%;
   color: black;
+}
+
+.link-to-home{
+  color: black;
+}
+
+.links-in-header{
+  display: flex;
+  padding-right: 250px;
 }

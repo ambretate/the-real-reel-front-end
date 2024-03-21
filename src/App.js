@@ -31,23 +31,23 @@ function App() {
         <Route
           path="/timeline"
           element={
-            <Layout>
-              <MainPage user={user}/>{" "}
+            <Layout user={user}>
+              <MainPage user={user}/>
             </Layout>
           }
         />
         <Route
           path="/user"
           element={
-            <Layout>
-              <User />
+            <Layout user={user}>
+              <User user={user} />
             </Layout>
           }
         />
         <Route
           path="/catalog"
           element={
-            <Layout>
+            <Layout user={user}>
               <Catalog />
             </Layout>
           }
