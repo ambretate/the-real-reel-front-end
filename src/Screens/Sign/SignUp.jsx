@@ -112,7 +112,6 @@ const SignUp = (props) => {
           />
           {renderError()}
           <br />
-          {/* <button type="submit">Sign Up</button> */}
           <p>
             Already have an account? <Link to="/">Sign In</Link>
           </p>

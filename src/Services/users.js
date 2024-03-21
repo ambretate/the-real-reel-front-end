@@ -48,9 +48,7 @@ export const getFollows = async () => {
 export const getUserTimeline = async () => {
   try {
     const resp = await api.get("/users/timeline");
-    localStorage.getItem("token", resp.data.token);
-    const user = jwtDecode(resp.data.token);
-    return user;
+    return resp;
   } catch (error) {
     console.error("Error getting timeline: ", error);
   }
