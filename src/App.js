@@ -22,16 +22,6 @@ function App() {
     fetchUser();
   }, []);
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // const handleLogin = () => {
-  //   setIsLoggedIn(true);
-  // };
-
-  // const handleLogout = () => {
-  //   setIsLoggedIn(false);
-  // };
-
   return (
     <>
       <Routes>
@@ -41,9 +31,9 @@ function App() {
         <Route
           path="/timeline"
           element={
-              <Layout>
-                <MainPage />{" "}
-              </Layout>
+            <Layout>
+              <MainPage />{" "}
+            </Layout>
           }
         />
         <Route
@@ -62,11 +52,13 @@ function App() {
             </Layout>
           }
         />
+
         <Route 
           path="catalog/:id"
           element={ <Movie/> }
         />
         
+
       </Routes>
     </>
   );
