@@ -27,6 +27,7 @@ function Movie() {
     
     fetchMovie();
   }, [id]);
+  console.log('the reviews', reviews);
   
   // make function to populate recommendations, post MVP
   // useEffect( () => {
@@ -39,11 +40,21 @@ function Movie() {
     <div id="mainContain-Movie">
       <Header/>
         <MovieBlock movie={movie}/>
-        {
-          reviews.map( (item, idx) => (
-            <PreReview movie={item} review={reviews[idx]} key={idx} />
-          ))
-        }
+        <h1 id="h1-Movie" >Reviews</h1>
+        <div id="reviewContainer-Movie">
+          {
+            reviews.map( (item, idx) => (
+              <PreReview 
+                movie={movie} 
+                review={reviews[idx]} 
+                key={idx} 
+                showUser={false}
+                
+
+              />
+            ))
+          }
+        </div>
       <Footer />
     </div>
   )

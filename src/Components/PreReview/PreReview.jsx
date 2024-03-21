@@ -1,31 +1,56 @@
-import {useEffect, useState} from 'react';
-import {getUser} from '../../Services/users.js';
+import { useEffect, useState } from 'react';
+import { getUser } from '../../Services/users.js';
 import './PreReview.css';
 
-function PreReview( { movie, review } ) {
+function PreReview( { movie, review, showUser } ) {
   const [user, setUser] = useState({});
 
   // fetch the userData with ID
   useEffect(() => {
     const fetchUser = async () => {
-      console.log('is this a user id?', review.userID)
       const item = await getUser(review.userID);
       setUser(item);
       
     };
     
     fetchUser();
-  }, [review.userID]);
+  }, [review]);
   
+  const userName = (!user) ? 'loading ...' : user.username;
   return (
     <div id="mainContainer-PreReview">
-      <img id="img-PreReview" src={movie.img} alt={movie.alt} />
-      <h1 id="title-PreReview">
-        {review.title}  
-      </h1>
-      <h1 id="userName-PreReview">
-        {user.username}
-      </h1>
+      <div id="leftContainer-PreReview">
+        {
+          (!showUser) ? 
+            <img 
+              id="movieImage-PreReview"
+              src={movie.image}
+              alt={`Movie Title poster for ${movie.title}`}
+            />
+           
+          : 
+            <h1 id="userName-PreReview">
+              {userName}
+            </h1>
+        } 
+
+      </div>
+
+      <div id="rightContainer-PreReview">
+        {
+          (!showUser) ? 
+            <h1 id="movieTitle-PreReview">
+              {movie.title}
+            </h1>
+
+          : null
+            
+        } 
+
+        <h2 id="reviewTitle-PreReview">
+          <u>{review.title}</u> By {userName} 
+        </h2>
+        
         {
           (review.hasSpoilers)
           ? <p id="body-PreReview"> CONTAINS SPOILERS! </p>
@@ -34,7 +59,7 @@ function PreReview( { movie, review } ) {
               {review.review}
             </p>
         }
-
+      </div>
       
     </div>
   )
