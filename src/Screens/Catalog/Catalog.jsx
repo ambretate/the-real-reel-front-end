@@ -1,8 +1,8 @@
-import {getMovies} from '../../Services/movies.js';
-import { useState, useEffect } from 'react';
-import {NavLink} from 'react-router-dom';
-import MoviePreview from '../../Components/MoviePreview/MoviePreview.jsx';
-import './Catalog.css';
+import { getMovies } from "../../Services/movies.js";
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import MoviePreview from "../../Components/MoviePreview/MoviePreview.jsx";
+import "./Catalog.css";
 
 function Catalog() {
   // use states
@@ -13,34 +13,23 @@ function Catalog() {
     const fetchMovies = async () => {
       const allMovies = await getMovies();
       setMovies(allMovies);
-      
-    }
+    };
     fetchMovies();
-  }, [])
-
-
-
-  // console.log('where da movies at', movies[0])
+  }, []);
 
   return (
     <div id="mainContainer-Catalog">
       <h1 id="mainTitle-Catalog"> Movie Catalog </h1>
-      
+
       <div id="moviePrevContainer-Catalog">
-        {
-          (movies) ?
-          movies.map( (item, idx) => (
-            
-            <NavLink to={`/movies/${item._id}`}>
-              <MoviePreview item={item} key={idx} />
-            </NavLink>
-          ))
-          : null
-        }
+        {movies.map((movie) => (
+          <NavLink to={`/movies/${movie._id}`} key={movie._id}>
+            <MoviePreview item={movie} />
+          </NavLink>
+        ))}
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default Catalog
+export default Catalog;

@@ -23,83 +23,92 @@ export const signIn = async (credentials) => {
   }
 };
 
-export const signOut = async () => {
+export const verifyUser = async () => {
   try {
-    localStorage.removeItem("token");
-    return true;
+    const resp = await api.get("/users/verify");
+    return resp.data;
   } catch (error) {
     throw error;
   }
 };
 
-export const verifyUser = async () => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    const res = await api.get("/users/verify");
-    return res.data;
+export const getFollows = async () => {
+  try {
+    const resp = await api.get("/users/follows");
+    return resp.data;
+  } catch (error) {
+    throw error;
   }
-  return false;
+};
+
+export const getUserTimeline = async () => {
+  try {
+    const resp = await api.get("/users/timeline");
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateFollowings = async (followedUserId) => {
+  try {
+    const resp = await api.put(`/users/follow/${followedUserId}`);
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getUsers = async () => {
   try {
-    const response = await api.get("/users");
-    return response.data;
+    const resp = await api.get("/users");
+    return resp.data;
   } catch (error) {
-    console.error("Error getting all users", error);
-  }
-};
-
-export const getUser = async (id) => {
-  try {
-    const response = await api.get(`/users/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error getting user", error);
-  }
-};
-
-export const getUserByUsername = async (username) => {
-  try {
-    const response = await api.get(`/users/${username}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error getting user", error);
+    throw error;
   }
 };
 
 export const getUserByEmail = async (email) => {
   try {
-    const response = await api.get(`/users/${email}`);
-    return response.data;
+    const resp = await api.get(`/users/email/${email}`);
+    return resp.data;
   } catch (error) {
-    console.error("Error getting user", error);
+    throw error;
   }
 };
 
-export const createUser = async (userData) => {
+export const getUserByUsername = async (username) => {
   try {
-    const response = await api.post("/users", userData);
-    return response.data;
+    const resp = await api.get(`/username/${username}`);
+    return resp.data;
   } catch (error) {
-    console.error("Error creating user", error);
+    throw error;
   }
 };
 
-export const editUser = async (id, userData) => {
+export const getUser = async (id) => {
   try {
-    const response = await api.put(`/users/${id}`, userData);
-    return response.data;
+    const resp = await api.get(`/users/${id}`);
+    return resp.data;
   } catch (error) {
-    console.error("Error updating user", error);
+    throw error;
+  }
+};
+
+export const updateUser = async (id, updatedUserData) => {
+  try {
+    const resp = await api.put(`/users/${id}`, updatedUserData);
+    return resp.data;
+  } catch (error) {
+    throw error;
   }
 };
 
 export const deleteUser = async (id) => {
   try {
-    const response = await api.delete(`/users/${id}`);
-    return response.data;
+    const resp = await api.delete(`/users/${id}`);
+    return resp.data;
   } catch (error) {
-    console.error("Error deleting user", error);
+    throw error;
   }
 };
