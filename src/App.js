@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SignIn setUser={setUser} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
-        
+
         <Route
           path="/timeline"
           element={
@@ -53,11 +53,8 @@ function App() {
           }
         />
 
-        <Route 
-          path="catalog/:id"
-          element={ <Movie/> }
-        />
-        
+
+        <Route path="catalog/:id" element={<Movie />} />
 
       </Routes>
     </>
