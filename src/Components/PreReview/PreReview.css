@@ -29,6 +29,12 @@
    
 }
 
+#body-PreReview {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 #blurBody-PreReview {
     filter: blur(2rem);
 }

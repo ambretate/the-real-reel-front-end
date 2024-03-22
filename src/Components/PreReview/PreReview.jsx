@@ -19,7 +19,9 @@ function PreReview( { movie, review, showUser } ) {
   }, [review]);
 
   function handleClick() {
-
+    if(blur) {
+      setBlur(false);
+    }
   }
   
   const userName = (!user) ? 'loading ...' : user.username;
@@ -57,22 +59,20 @@ function PreReview( { movie, review, showUser } ) {
           <u>{review.title}</u> By {userName} 
         </h2>
         
-        {
-          <div 
-            className={ blur ? 'blurBody-PreReview' : 'normalBody-PreReview' }
-            onClick={handleClick}
+        <div 
+          className={ blur ? 'blurBody-PreReview' : 'normalBody-PreReview' }
+          onClick={handleClick}
           >
-            <p 
-              id="body-PreReview"
-              
-            > 
-              {review.review}
-            
-            </p>
-          </div>
+          {
+            (blur) ? 
+              <h3>this review contains spoilers! click to proceed</h3>
+            : null
+          }
+          <p id="body-PreReview"> {review.review} </p>
+        </div>
 
           
-        }
+        
       </div>
       
     </div>
