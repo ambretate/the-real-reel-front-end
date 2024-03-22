@@ -5,15 +5,15 @@ import "./Timeline.css";
 import { Link } from "react-router-dom";
 
 const YourComponent = () => {
-  const [user, setUser] = useState(null);
-  const [movie, setMovie] = useState();
+  const [timelineUsers, setTimelineUsers] = useState([]);
+  // const [movie, setMovie] = useState();
 
   useEffect(() => {
     const fetchTimeline = async () => {
-      const user = await getUserTimeline();
-      const movieResponse = await getMovie(user.data[0].movieID);
-      setUser(user.data[0]);
-      setMovie(movieResponse);
+      const timelineUsersData = await getUserTimeline();
+      // const movieResponse = await getMovie(user.data[0].movieID);
+      setTimelineUsers(timelineUsersData);
+      // setMovie(movieResponse);
     };
 
     fetchTimeline();
@@ -22,8 +22,8 @@ const YourComponent = () => {
   return (
     <div className="rewievs-container-tl">
       <h1 className="latest-reviews">Latest Reviews</h1>
-      {user !== null ? (
-        <div className="review-box-tl">
+      {timelineUsers.length > 0 && timelineUsers.map((user) => (
+        <div className="review-box-tl" key={user._id}>
           <div className="movie-review-details">
             <div className="user-info-in-review">
               <h3 className="username-h3">{user.userID.username}</h3>
@@ -31,21 +31,19 @@ const YourComponent = () => {
             </div>
             <div className="img-title-review">
               <img
-                src={movie.movie.image}
-                alt={movie.movie.title}
+                src={user.movieID.image}
+                alt={user.movieID.title}
                 className="movie-review-img"
                 />
               <div className="title-review">
-                <Link to={`/catalog/${movie.movie._id}`}><h3>{movie.movie.title}</h3></Link>
+                <Link to={`/catalog/${user.movieID._id}`}><h3>{user.movieID.title}</h3></Link>
                 <h4>{user.title}</h4>
                 <p className="user-review-in-timeline">{user.review}</p>
               </div>
             </div>
           </div>
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+      ))}
     </div>
   );
 };

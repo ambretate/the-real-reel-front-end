@@ -15,8 +15,11 @@ function Movie({user}) {
   // set states
   const [movie, setMovie] = useState({});
   const [reviews, setReviews] = useState([]);
-  const [toggleReviews, setToggleReviews] = useState(false)
   const [recs, setRecs] = useState([]);
+  const [toggleReviews, setToggleReviews] = useState(false)
+
+  console.log(movie._id)
+  console.log(user)
 
   // fetch the movie with ID
   useEffect(() => {
@@ -27,7 +30,7 @@ function Movie({user}) {
     };
 
     fetchMovie();
-  }, [id]);
+  }, [id, toggleReviews]);
 
   // we should add a back button here to nav back to the main Catalog
   return (
@@ -36,18 +39,18 @@ function Movie({user}) {
         <Header />
         <MovieBlock movie={movie} />
         <h3 className="write-a-review">Write a review for {movie.title}</h3>
-        <CreateReview />
+        <CreateReview setToggleReviews={setToggleReviews} movieID={movie._id} userID={user?.id}/>
         <h1 id="h1-Movie">Reviews</h1>
         <div id="reviewContainer-Movie">
-          {reviews.map((item, idx) => (
-            
-              <PreReview
-                movie={movie}
-                review={reviews[idx]}
-                key={idx}
-                showUser={false}
-              />
-            
+
+
+          {reviews.map((review, idx) => (
+            <PreReview
+              movie={movie}
+              review={review}
+              key={idx}
+              showUser={false}
+            />
           ))}
         </div>
         <Footer />

@@ -52,12 +52,12 @@ function App() {
           path="/catalog"
           element={
             <Layout user={user}>
-              <Catalog />
+              <Catalog user={user}/>
             </Layout>
           }
         />
 
-        <Route path="catalog/:id" element={<Movie />} />
+        <Route path="catalog/:id" element={<Movie user={user}/>} />
         <Route path="movies/:id" element={<Movie user={user}/>} />
         <Route path="users/timeline" element={<Timeline user={user} />} />
         <Route
@@ -78,7 +78,7 @@ function App() {
         />
         <Route path="user/follows" element={<User />} />
         <Route path="reviews/:id" element={<Review />} />
-        <Route path="reviews/create" element={<CreateReview />} />
+        <Route path="reviews/create" element={<CreateReview user={user} />} />
       </Routes>
     </>
   );

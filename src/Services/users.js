@@ -44,7 +44,7 @@ export const getFollows = async () => {
 export const getUserTimeline = async () => {
   try {
     const resp = await api.get("/users/timeline");
-    return resp;
+    return resp.data;
   } catch (error) {
     console.error("Error getting timeline: ", error);
   }

@@ -5,7 +5,7 @@ import ProgressiveImg from "../../Components/ProgressiveImg/ProgessiveImg.jsx";
 import MoviePreview from "../../Components/MoviePreview/MoviePreview.jsx";
 import "./Catalog.css";
 
-function Catalog() {
+function Catalog({user}) {
   // use states
   const [movies, setMovies] = useState([]);
 
@@ -27,7 +27,7 @@ function Catalog() {
           (movies) ?
           movies.map((item, idx) => (
           <NavLink to={`/catalog/${item._id}`} key={idx}>
-            <MoviePreview movie={item} key={idx} />
+            <MoviePreview movie={item} key={idx} user={user} />
           </NavLink>
         ))
         :null

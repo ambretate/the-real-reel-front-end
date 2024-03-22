@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { getUser } from '../../Services/users.js';
-import './PreReview.css';
+import { useEffect, useState } from "react";
+import { getUser } from "../../Services/users.js";
+import "./PreReview.css";
 
-function PreReview( { movie, review, showUser } ) {
+function PreReview({ movie, review, showUser }) {
   const [user, setUser] = useState({});
   const [blur, setBlur] = useState(false);
   // set spoiler state
@@ -13,11 +13,9 @@ function PreReview( { movie, review, showUser } ) {
     const fetchUser = async () => {
       const item = await getUser(review.userID);
       setUser(item);
-      console.log('spoilers?',review.hasSpoilers)
       setBlur(review.hasSpoilers);
-      
     };
-    
+
     fetchUser();
   }, []);
 
@@ -30,40 +28,30 @@ function PreReview( { movie, review, showUser } ) {
     }
   }
   
-  
-  const userName = (!user) ? 'loading ...' : user.username;
+  const userName = !user ? "loading ..." : user.username;
+
   return (
     <div id="mainContainer-PreReview">
       <div id="leftContainer-PreReview">
-        {
-          (!showUser) ? 
-            <img 
-              id="movieImage-PreReview"
-              src={movie.image}
-              alt={`Movie Title poster for ${movie.title}`}
-            />
-           
-          : 
-            <h1 id="userName-PreReview">
-              {userName}
-            </h1>
-        } 
-
+        {!showUser ? (
+          <img
+            id="movieImage-PreReview"
+            src={movie.image}
+            alt={`Movie Title poster for ${movie.title}`}
+          />
+        ) : (
+          <h1 id="userName-PreReview">{userName}</h1>
+        )}
       </div>
 
       <div id="rightContainer-PreReview">
-        {
-          (!showUser) ? 
-            <h1 id="movieTitle-PreReview">
-              {movie.title}
-            </h1>
-
-          : null
-            
-        } 
+        <div className="spoilerTitle-container">
+          <h1 id="movieTitle-PreReview">{movie.title}</h1>
+          {review.hasSpoilers ? <button>Spoilers!!!</button> : null}
+        </div>
 
         <h2 id="reviewTitle-PreReview">
-          <u>{review.title}</u> By {userName} 
+          <u>{review.title}</u> By {userName}
         </h2>
         <div 
           onClick={handleClick}
@@ -84,10 +72,10 @@ function PreReview( { movie, review, showUser } ) {
 
         </div>
        
+
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default PreReview
+export default PreReview;

@@ -17,8 +17,7 @@ textarea {
   font-family: "Julius Sans One", sans-serif;  border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
-  border-bottom-style: hidden;
-  
+  border-bottom-style: hidden; 
 }
 
 textarea {
@@ -32,6 +31,7 @@ textarea {
   border-bottom: 1px solid black;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  color: black;
 }
 
 .input-hasSpoiler {
