@@ -32,7 +32,7 @@ function App() {
           path="/timeline"
           element={
             <Layout user={user}>
-              <MainPage user={user}/>
+              <MainPage user={user} />
             </Layout>
           }
         />
@@ -56,6 +56,7 @@ function App() {
         <Route path="catalog/:id" element={<Movie />} />
         <Route path="movies/:id" element={<Movie />} />
         <Route path="users/timeline" element={<Timeline user={user} />} />
+        <Route path="user/follows" element={<User/>} />
       </Routes>
     </>
   );
