@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import MovieBlock from '../../Components/MovieBlock/MovieBlock.jsx';
 import PreReview from '../../Components/PreReview/PreReview.jsx';
 import Header from '../../Components/Header/Header.jsx';
@@ -27,7 +27,7 @@ function Movie() {
     
     fetchMovie();
   }, [id]);
-  console.log('the reviews', reviews);
+  // console.log('the reviews', reviews);
   
   // make function to populate recommendations, post MVP
   // useEffect( () => {
@@ -44,14 +44,14 @@ function Movie() {
         <div id="reviewContainer-Movie">
           {
             reviews.map( (item, idx) => (
-              <PreReview 
-                movie={movie} 
-                review={reviews[idx]} 
-                key={idx} 
-                showUser={false}
-                
-
-              />
+              <NavLink to={`/reviews/${reviews[idx]}`}>
+                <PreReview 
+                  movie={movie} 
+                  review={reviews[idx]} 
+                  key={idx} 
+                  showUser={false}
+                />
+              </NavLink>
             ))
           }
         </div>
