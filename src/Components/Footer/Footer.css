@@ -1,19 +1,19 @@
 #background-Footer {
-    background-color:#76ABAE ;
-    position: fixed;
-    bottom: 0;
-    height: 60px;
-    width: 100%;
+  background-color: #76abae;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
 
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-end;
-    justify-content: center;
-    
-    
+.github-footer {
+  height: 40px;
 }
 
 #brand-Footer {
-   margin: 0 1rem;
-    
+  margin-right: 1em;
+  position: absolute;
+  right: 0;
 }
