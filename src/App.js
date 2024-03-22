@@ -10,6 +10,8 @@ import Catalog from "./Screens/Catalog/Catalog.jsx";
 import User from "./Screens/User/User.jsx";
 import Movie from "./Screens/Movie/Movie.jsx";
 import { verifyUser } from "./Services/users.js";
+import Following from "./Components/Follows/Following.jsx";
+import Follower from "./Components/Follows/Follower.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -56,7 +58,22 @@ function App() {
         <Route path="catalog/:id" element={<Movie />} />
         <Route path="movies/:id" element={<Movie />} />
         <Route path="users/timeline" element={<Timeline user={user} />} />
-        <Route path="user/follows" element={<User/>} />
+        <Route
+          path="/following"
+          element={
+            <Layout>
+              <Following />
+            </Layout>
+          }
+        />
+        <Route
+          path="/follower"
+          element={
+            <Layout>
+              <Follower />
+            </Layout>
+          }
+        />
       </Routes>
     </>
   );

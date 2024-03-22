@@ -1,0 +1,18 @@
+.user-container{
+    padding-left: 60px;
+    padding-top: 20px;
+}
+
+.user-container h1{
+    margin-bottom: 0;
+}
+
+.user-container p{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: "Khand", sans-serif;
+}
+
+.user-container a {
+ padding-right: 10px;
+}
