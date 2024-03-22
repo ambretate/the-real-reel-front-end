@@ -1,8 +1,8 @@
 #background-Footer {
     background-color:#76ABAE ;
     position: fixed;
-    bottom: 0%;
-    height: 8%;
+    bottom: 0;
+    height: 60px;
     width: 100%;
 
     display: flex;
