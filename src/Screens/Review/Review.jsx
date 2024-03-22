@@ -11,14 +11,14 @@ function Review() {
   const { id } = useParams();
 
   // set state
-  const [review, setReview] = useState([]);
+  const [review, setReview] = useState({});
 
   // fetch the review with ID
   useEffect(() => {
     const fetchReview = async () => {
       const item = await getReview(id);
-      console.log('what it look like', item);
-      setReview(item.review);
+      
+      setReview(item);
     };
     
     fetchReview();

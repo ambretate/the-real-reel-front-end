@@ -1,4 +1,4 @@
-import React from 'react'
+import './CreateReview.css'
 
 function CreateReview() {
   return (

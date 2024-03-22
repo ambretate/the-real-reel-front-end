@@ -34,7 +34,7 @@ function Movie() {
     
   // }, []);
 
-    
+  console.log('da reviews', reviews._id)
   // we should add a back button here to nav back to the main Catalog
   return (
     <div id="mainContain-Movie">
@@ -44,7 +44,7 @@ function Movie() {
         <div id="reviewContainer-Movie">
           {
             reviews.map( (item, idx) => (
-              <NavLink to={`/reviews/${reviews[idx]}`}>
+              <NavLink to={`/reviews/${reviews[idx].id}`}>
                 <PreReview 
                   movie={movie} 
                   review={reviews[idx]} 
