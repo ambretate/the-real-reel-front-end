@@ -1,12 +1,11 @@
 .movie-page  {
-    height: 100vh
+   
     
 }
 
 #mainContain-Movie {
+    padding: 0 0 80px 0;
     background-color: #31363F;
-    margin: 0 0 8rem 0;
-    min-height: 600px;
 }
 
 #title-Movie{

@@ -56,8 +56,9 @@ function Movie({user}) {
             )
           })}
         </div>
-        <Footer />
+        
       </div>
+      <Footer />
     </div>
   );
 }
