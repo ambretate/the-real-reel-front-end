@@ -7,6 +7,7 @@ function PreReview( { movie, review, showUser } ) {
   const [blur, setBlur] = useState(false);
   // set blur state to review.hasSpoilers 
   setBlur( review.hasSpoilers );
+  
   // fetch the userData with ID
   useEffect(() => {
     const fetchUser = async () => {
@@ -18,7 +19,7 @@ function PreReview( { movie, review, showUser } ) {
   }, [review]);
 
   function handleClick() {
-    
+
   }
   
   const userName = (!user) ? 'loading ...' : user.username;
