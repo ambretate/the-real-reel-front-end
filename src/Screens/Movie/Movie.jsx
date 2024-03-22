@@ -40,14 +40,14 @@ function Movie({user}) {
         <h1 id="h1-Movie">Reviews</h1>
         <div id="reviewContainer-Movie">
           {reviews.map((item, idx) => (
-            <NavLink to={`/reviews/${reviews[idx]}`}>
+            
               <PreReview
                 movie={movie}
                 review={reviews[idx]}
                 key={idx}
                 showUser={false}
               />
-            </NavLink>
+            
           ))}
         </div>
         <Footer />
