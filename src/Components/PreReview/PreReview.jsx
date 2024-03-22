@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getUser } from "../../Services/users.js";
+import { getUser, updateFollowings } from "../../Services/users.js";
 import "./PreReview.css";
 
-function PreReview({ movie, review, showUser }) {
+function PreReview({ movie, review, showUser, isFollowingUser, setToggleReviews }) {
   const [user, setUser] = useState({});
   const [blur, setBlur] = useState(false);
   // set spoiler state
@@ -28,6 +28,11 @@ function PreReview({ movie, review, showUser }) {
     }
   }
   
+  async function handleFollowClick(user_ID){
+    await updateFollowings(user_ID)
+    setToggleReviews(prev => !prev)
+  }
+
   const userName = !user ? "loading ..." : user.username;
 
   return (
@@ -47,6 +52,7 @@ function PreReview({ movie, review, showUser }) {
       <div id="rightContainer-PreReview">
         <div className="spoilerTitle-container">
           <h1 id="movieTitle-PreReview">{movie.title}</h1>
+          {isFollowingUser ? <p>Already following!</p> : <button onClick={() => handleFollowClick(review.userID)}>Follow</button>}
           {review.hasSpoilers ? <button>Spoilers!!!</button> : null}
         </div>
 
