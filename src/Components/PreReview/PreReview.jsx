@@ -53,7 +53,6 @@ function PreReview({ movie, review, showUser, isFollowingUser, setToggleReviews 
         <div className="spoilerTitle-container">
           <h1 id="movieTitle-PreReview">{movie.title}</h1>
           {isFollowingUser ? <p>Already following!</p> : <button onClick={() => handleFollowClick(review.userID)}>Follow</button>}
-          {review.hasSpoilers ? <button>Spoilers!!!</button> : null}
         </div>
 
         <h2 id="reviewTitle-PreReview">
