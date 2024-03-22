@@ -1,91 +1,94 @@
-import { useState } from 'react'
-import './CreateReview.css'
-import { createReview } from '../../Services/reviews.js'
+import { useEffect, useState } from "react";
+import "./CreateReview.css";
+import { createReview, getReview } from "../../Services/reviews.js";
 
-const CreateReview = ({setToggleReviews, movieID, userID}) => {
+const CreateReview = ({ setToggleReviews, movieID, userID }) => {
 
   const [review, setReview] = useState({
     userID: "",
     movieID: "",
-    title: '',
-    review: '',
-    hasSpoiler: false,
-  })
+    title: "",
+    review: "",
+    hasSpoilers: false,
+  });
+
+  useEffect(() => {});
 
   const handleChange = (event) => {
-    const { name, value } = event.target
-    setReview(prevReview => ({
+    const { name, value } = event.target;
+    setReview((prevReview) => ({
       ...prevReview,
       [name]: value,
-    }))
-  }
+    }));
+    console.log(review);
+  };
 
   const handleCheckBoxChange = (event) => {
-    const { name, checked } = event.target
-    setReview(prevReview => ({
+    const { name, checked } = event.target;
+    setReview((prevReview) => ({
       ...prevReview,
       [name]: checked,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const finalReview = {
       ...review,
       userID,
-      movieID
-    }
-    await createReview(finalReview)
+      movieID,
+    };
+    console.log(finalReview);
+    await createReview(finalReview);
 
     setReview({
-      userID: "",
-      movieID: "",
-      title: '',
-      review: '',
+      userID,
+      movieID,
+      title: "",
+      review: "",
       hasSpoiler: false,
-    })
-    setToggleReviews(prev => !prev)
-  }
+    });
+    setToggleReviews((prev) => !prev);
+  };
 
   return (
     <div className="create-form-container">
-      <form className='create-form' onSubmit={handleSubmit}>
+      <form className="create-form" onSubmit={handleSubmit}>
         <input
-          className='input-title'
-          placeholder='Title'
+          className="input-title"
+          placeholder="Title"
           value={review.title}
-          name='title'
+          name="title"
           required
           autoFocus
           onChange={handleChange}
         />
         <textarea
-          className='textarea-review'
+          className="textarea-review"
           rows={5}
-          placeholder='Review'
+          placeholder="Review"
           value={review.review}
-          name='review'
+          name="review"
           required
           onChange={handleChange}
         />
         <div>
-          <label htmlFor="hasSpoiler">Has Spoilers?</label>
+          <label htmlFor="hasSpoilers">Has Spoilers?</label>
           <input
             type="checkbox"
-            id="hasSpoiler"
-            className='input-hasSpoiler'
-            checked={review.hasSpoiler}
-            name='hasSpoiler'
-            required
+            id="hasSpoilers"
+            className="input-hasSpoiler"
+            checked={review.hasSpoilers}
+            name="hasSpoilers"
             onChange={handleCheckBoxChange}
           />
         </div>
-        <button type='submit' className='submit-button'>
+        <button type="submit" className="submit-button">
           Submit Your Review
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CreateReview
+export default CreateReview;

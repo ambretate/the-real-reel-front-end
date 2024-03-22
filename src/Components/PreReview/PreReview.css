@@ -1,34 +1,28 @@
 #mainContainer-PreReview {
-    position: relative;
-    background-color: #868686;
-    border-radius: 1rem;
-    width: 60vw;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    
+  position: relative;
+  background-color: #868686;
+  border-radius: 1rem;
+  width: 70vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
-#leftContainer-PreReview{
-   width: 20%;
+#leftContainer-PreReview {
+  width: 20%;
 }
 
-#rightContainer-PreReview{
-    width: 80%;
-    
+#rightContainer-PreReview {
+  width: 80%;
 }
 #movieImage-PreReview {
-    border-radius: 1rem;
-    height: 8rem;
-    margin: 1rem;
-    box-shadow: 0 0 10px white;
-
+  border-radius: 1rem;
+  height: 8rem;
+  margin: 1rem;
+  box-shadow: 0 0 10px white;
 }
 
-#title-PreReview {
-   
-}
-
-#body-PreReview {
-   
+.spoilerTitle-container {
+  display: flex;
+  justify-content: space-between;
 }
