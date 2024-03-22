@@ -1,0 +1,19 @@
+.following{
+    padding-left: 60px;
+    font-family: "Khand", sans-serif;
+    font-size: larger;
+}
+
+.following-container{
+    padding-left: 60px;
+}
+
+.following-users{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.following-p{
+    font-size: small;
+}
