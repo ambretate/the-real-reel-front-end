@@ -36,7 +36,6 @@ function Movie({user}) {
   return (
     <div className="movie-page">
       <div id="mainContain-Movie">
-        <Header />
         <MovieBlock movie={movie} />
         <h3 className="write-a-review">Write a review for {movie.title}</h3>
         <CreateReview setToggleReviews={setToggleReviews} movieID={movie._id} userID={user?.id}/>
