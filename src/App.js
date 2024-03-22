@@ -57,7 +57,7 @@ function App() {
           }
         />
 
-        <Route path="catalog/:id" element={<Movie user={user}/>} />
+        <Route path="catalog/:id" element={<Layout><Movie user={user}/></Layout>}/>
         <Route path="movies/:id" element={<Movie user={user}/>} />
         <Route path="users/timeline" element={<Timeline user={user} />} />
         <Route
