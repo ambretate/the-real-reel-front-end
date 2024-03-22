@@ -58,7 +58,7 @@ function App() {
         />
 
         <Route path="catalog/:id" element={<Layout><Movie user={user}/></Layout>}/>
-        <Route path="movies/:id" element={<Movie user={user}/>} />
+        <Route path="movies/:id" element={<Layout><Movie user={user}/></Layout>} />
         <Route path="users/timeline" element={<Timeline user={user} />} />
         <Route
           path="/following"
