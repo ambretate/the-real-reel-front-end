@@ -2,12 +2,13 @@ import {useEffect, useState} from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import MovieBlock from '../../Components/MovieBlock/MovieBlock.jsx';
 import PreReview from '../../Components/PreReview/PreReview.jsx';
+import CreateReview from '../CreateReview/CreateReview.jsx';
 import Header from '../../Components/Header/Header.jsx';
 import Footer from '../../Components/Footer/Footer.jsx';
 import { getMovie } from '../../Services/movies.js';
 import './Movie.css';
 
-function Movie() {
+function Movie({user}) {
   // get id with useParams
   const { id } = useParams();
   // console.log('print params', id);
@@ -15,6 +16,7 @@ function Movie() {
   // set states
   const [movie, setMovie ] = useState({});
   const [reviews, setReviews] = useState([]);
+  const [toggleReviews, setToggleReviews] = useState(false)
   const [recs, setRecs] = useState([]);
   
   // fetch the movie with ID
@@ -26,7 +28,7 @@ function Movie() {
     };
     
     fetchMovie();
-  }, [id]);
+  }, [id, toggleReviews]);
   // console.log('the reviews', reviews);
   
   // make function to populate recommendations, post MVP
@@ -41,17 +43,16 @@ function Movie() {
       <Header/>
         <MovieBlock movie={movie}/>
         <h1 id="h1-Movie" >Reviews</h1>
+        <CreateReview setToggleReviews={setToggleReviews} movieID={movie._id} userID={user?.id}/>
         <div id="reviewContainer-Movie">
           {
-            reviews.map( (item, idx) => (
-              <NavLink to={`/reviews/${reviews[idx].id}`}>
-                <PreReview 
-                  movie={movie} 
-                  review={reviews[idx]} 
-                  key={idx} 
-                  showUser={false}
-                />
-              </NavLink>
+            reviews.map( (review, idx) => (
+              <PreReview  
+                movie={movie} 
+                review={review} 
+                key={idx} 
+                showUser={false}
+              />
             ))
           }
         </div>

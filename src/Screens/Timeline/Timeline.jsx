@@ -17,7 +17,7 @@ const YourComponent = () => {
     <div>
       <h1>User Timeline</h1>
       {user !== null ?
-      <p>{user.review}</p> :
+      <p>{user?.review}</p> :
       <p>Loading...</p>}
     </div>
   );
