@@ -2,7 +2,7 @@ import { parseDate } from "../../Services/conversions.js";
 import './MovieBlock.css';
 
 function MovieBlock( { movie } ) {
-  console.log('movie block incoming props', movie);
+  //console.log('movie block incoming props', movie);
   // const newDate = parseDate(movie?.releaseDate);
   if (!movie.title) return <h1>Loading...</h1>
   
