@@ -6,6 +6,7 @@ import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import { getMovie } from "../../Services/movies.js";
 import "./Movie.css";
+import CreateReview from "../CreateReview/CreateReview.jsx";
 
 function Movie({user}) {
   // get id with useParams
@@ -34,6 +35,8 @@ function Movie({user}) {
       <div id="mainContain-Movie">
         <Header />
         <MovieBlock movie={movie} />
+        <h3 className="write-a-review">Write a review for {movie.title}</h3>
+        <CreateReview />
         <h1 id="h1-Movie">Reviews</h1>
         <div id="reviewContainer-Movie">
           {reviews.map((item, idx) => (

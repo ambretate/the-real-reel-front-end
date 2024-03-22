@@ -29,14 +29,6 @@
     text-align: center;
 }
 
-#description-Movie {
-    
-}
-
-#reviews-Movie {
-
-}
-
-#recommendations-Movie {
-
+.write-a-review{
+    padding-left: 180px;
 }

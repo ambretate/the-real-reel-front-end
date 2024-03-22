@@ -13,6 +13,7 @@ import Review from "./Screens/Review/Review.jsx";
 import { verifyUser } from "./Services/users.js";
 import Following from "./Components/Follows/Following.jsx";
 import Follower from "./Components/Follows/Follower.jsx";
+import CreateReview from "./Screens/CreateReview/CreateReview.jsx"
 
 function App() {
   const [user, setUser] = useState(null);
