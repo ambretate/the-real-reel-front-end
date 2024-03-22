@@ -7,8 +7,10 @@ import Timeline from "./Screens/Timeline/Timeline.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
 import MainPage from "./Screens/Main/MainPage.jsx";
 import Catalog from "./Screens/Catalog/Catalog.jsx";
+import CreateReview from "./Screens/CreateReview/CreateReview.jsx";
 import User from "./Screens/User/User.jsx";
 import Movie from "./Screens/Movie/Movie.jsx";
+import Review from "./Screens/Review/Review.jsx";
 import { verifyUser } from "./Services/users.js";
 import Following from "./Components/Follows/Following.jsx";
 import Follower from "./Components/Follows/Follower.jsx";
@@ -74,6 +76,9 @@ function App() {
             </Layout>
           }
         />
+        <Route path="user/follows" element={<User />} />
+        <Route path="reviews/:id" element={<Review />} />
+        <Route path="reviews/create" element={<CreateReview />} />
       </Routes>
     </>
   );

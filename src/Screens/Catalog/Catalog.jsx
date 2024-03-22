@@ -1,6 +1,7 @@
 import { getMovies } from "../../Services/movies.js";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import ProgressiveImg from "../../Components/ProgressiveImg/ProgessiveImg.jsx";
 import MoviePreview from "../../Components/MoviePreview/MoviePreview.jsx";
 import "./Catalog.css";
 

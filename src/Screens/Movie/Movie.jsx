@@ -29,23 +29,25 @@ function Movie() {
 
   // we should add a back button here to nav back to the main Catalog
   return (
-    <div id="mainContain-Movie">
-      <Header />
-      <MovieBlock movie={movie} />
-      <h1 id="h1-Movie">Reviews</h1>
-      <div id="reviewContainer-Movie">
-        {reviews.map((item, idx) => (
-          <NavLink to={`/reviews/${reviews[idx]}`}>
-            <PreReview
-              movie={movie}
-              review={reviews[idx]}
-              key={idx}
-              showUser={false}
-            />
-          </NavLink>
-        ))}
+    <div className="movie-page">
+      <div id="mainContain-Movie">
+        <Header />
+        <MovieBlock movie={movie} />
+        <h1 id="h1-Movie">Reviews</h1>
+        <div id="reviewContainer-Movie">
+          {reviews.map((item, idx) => (
+            <NavLink to={`/reviews/${reviews[idx]}`}>
+              <PreReview
+                movie={movie}
+                review={reviews[idx]}
+                key={idx}
+                showUser={false}
+              />
+            </NavLink>
+          ))}
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
