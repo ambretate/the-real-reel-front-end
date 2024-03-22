@@ -14,7 +14,6 @@ const YourComponent = () => {
       const movieResponse = await getMovie(user.data[0].movieID);
       setUser(user.data[0]);
       setMovie(movieResponse);
-      console.log(movieResponse.movie._id)
     };
 
     fetchTimeline();

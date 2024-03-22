@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import { getMovieByTitle } from "../../Services/movies.js";
 import "./Search.css";
 import { Link } from "react-router-dom";
-import { getUser } from "../../Services/users.js";
+import { getUserByUsername } from "../../Services/users.js";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [userResults, setUserResults] = useState([]);
+  const [userResult, setUserResult] = useState({});
 
   const handleSearch = async () => {
     try {
       const formattedQuery = toTitleCase(query);
       const data = await getMovieByTitle(formattedQuery);
-      const userData = await getUser(formattedQuery);
+      const userData = await getUserByUsername(query);
       setResults(data || []);
-      setUserResults(userData ? [userData] : []);
+      setUserResult(userData ? userData : {});
       console.log(userData)
     } catch (error) {
       console.error("Error searching:", error);
@@ -66,14 +66,11 @@ const SearchBar = () => {
             </div>
           ))}
       </div>
-      {userResults.length > 0 && (
+      {userResult.username && (
         <div>
-          <h2>Users</h2>
-          {userResults.map((result) => (
-            <div key={result.id} className="results">
-              <p>{result.username}</p>
-            </div>
-          ))}
+          <div className="results">
+            <p>{userResult.username}</p>
+          </div>
         </div>
       )}
     </div>

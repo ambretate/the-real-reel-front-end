@@ -81,7 +81,7 @@ export const getUserByEmail = async (email) => {
 
 export const getUserByUsername = async (username) => {
   try {
-    const resp = await api.get(`/username/${username}`);
+    const resp = await api.get(`/users/username/${username}`);
     return resp.data;
   } catch (error) {
     console.error("Error getting user by username: ", error);
