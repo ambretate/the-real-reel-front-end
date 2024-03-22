@@ -1,8 +1,12 @@
 #background-Footer {
   background-color: #76abae;
-  position: relative;
+  position: absolute;
+  left:0;
+  bottom:0;
+  right:0;
   height: 60px;
   width: 100%;
+
   display: flex;
   align-items: flex-end;
   justify-content: center;
