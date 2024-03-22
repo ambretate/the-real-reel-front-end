@@ -12,6 +12,7 @@
     width: 12rem;
     margin: 4rem;   
 }
+
 #reviewContainer-Movie {
     display: flex;
     flex-flow: column;

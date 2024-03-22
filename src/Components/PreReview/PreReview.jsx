@@ -4,17 +4,22 @@ import './PreReview.css';
 
 function PreReview( { movie, review, showUser } ) {
   const [user, setUser] = useState({});
-
+  const [blur, setBlur] = useState(false);
+  // set blur state to review.hasSpoilers 
+  setBlur( review.hasSpoilers );
   // fetch the userData with ID
   useEffect(() => {
     const fetchUser = async () => {
       const item = await getUser(review.userID);
       setUser(item);
-      
     };
     
     fetchUser();
   }, [review]);
+
+  function handleClick() {
+    
+  }
   
   const userName = (!user) ? 'loading ...' : user.username;
   return (
@@ -52,12 +57,20 @@ function PreReview( { movie, review, showUser } ) {
         </h2>
         
         {
-          (review.hasSpoilers)
-          ? <p id="body-PreReview"> CONTAINS SPOILERS! </p>
-          
-          : <p id="body-PreReview">
+          <div 
+            className={ blur ? 'blurBody-PreReview' : 'normalBody-PreReview' }
+            onClick={handleClick}
+          >
+            <p 
+              id="body-PreReview"
+              
+            > 
               {review.review}
+            
             </p>
+          </div>
+
+          
         }
       </div>
       

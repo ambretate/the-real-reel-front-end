@@ -29,6 +29,10 @@
    
 }
 
-#body-PreReview {
-   
+#blurBody-PreReview {
+    filter: blur(2rem);
+}
+
+#normalBody-PreReview {
+    filter: none;
 }

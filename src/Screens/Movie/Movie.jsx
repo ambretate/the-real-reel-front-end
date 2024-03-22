@@ -10,8 +10,7 @@ import './Movie.css';
 function Movie() {
   // get id with useParams
   const { id } = useParams();
-  // console.log('print params', id);
-
+  
   // set states
   const [movie, setMovie ] = useState({});
   const [reviews, setReviews] = useState([]);
@@ -27,14 +26,12 @@ function Movie() {
     
     fetchMovie();
   }, [id]);
-  // console.log('the reviews', reviews);
   
   // make function to populate recommendations, post MVP
   // useEffect( () => {
     
   // }, []);
 
-  console.log('da reviews', reviews._id)
   // we should add a back button here to nav back to the main Catalog
   return (
     <div id="mainContain-Movie">
@@ -44,7 +41,7 @@ function Movie() {
         <div id="reviewContainer-Movie">
           {
             reviews.map( (item, idx) => (
-              <NavLink to={`/reviews/${reviews[idx].id}`}>
+              <NavLink to={`/reviews/${reviews[idx].id}`} key={idx}>
                 <PreReview 
                   movie={movie} 
                   review={reviews[idx]} 

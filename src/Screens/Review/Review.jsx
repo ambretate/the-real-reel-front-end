@@ -4,8 +4,6 @@ import { getReview } from '../../Services/reviews.js';
 
 import './Review.css';
 
-
-
 function Review() {
   // get id with useParams
   const { id } = useParams();
@@ -17,8 +15,8 @@ function Review() {
   useEffect(() => {
     const fetchReview = async () => {
       const item = await getReview(id);
-      
       setReview(item);
+
     };
     
     fetchReview();
@@ -26,7 +24,8 @@ function Review() {
 
   return (
     <div id="mainContainer-Review">
-      <h1 id="title-Review"> </h1>
+      <h1 id="title-Review"> {review.title} </h1>
+      <p> {review.review} </p>
       
     </div>
   )
