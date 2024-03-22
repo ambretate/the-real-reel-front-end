@@ -51,14 +51,13 @@ function PreReview( { movie, review, showUser } ) {
           <u>{review.title}</u> By {userName} 
         </h2>
         
-        {
-          (review.hasSpoilers)
-          ? <p id="body-PreReview"> CONTAINS SPOILERS! </p>
-          
-          : <p id="body-PreReview">
-              {review.review}
-            </p>
-        }
+        <p 
+          id="body-PreReview"
+          className={review.hasSpoilers ? 'blurBody-PreReview' : 'bodyClear-PreReview'}
+        > 
+          {review.title} 
+        </p>
+        
       </div>
       
     </div>
