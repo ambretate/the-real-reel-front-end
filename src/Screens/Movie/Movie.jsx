@@ -34,6 +34,7 @@ function Movie() {
 
   // we should add a back button here to nav back to the main Catalog
   return (
+    <div className="movie-page">
     <div id="mainContain-Movie">
       <Header/>
         <MovieBlock movie={movie}/>
@@ -52,6 +53,7 @@ function Movie() {
             ))
           }
         </div>
+    </div>
       <Footer />
     </div>
   )
