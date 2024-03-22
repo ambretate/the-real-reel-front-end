@@ -6,7 +6,29 @@
 
 }
 
+#background-MoviePreview:hover {
+    box-shadow: 0 0 10px white;
+   
+}
+
+#description-MoviePreview {
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0%;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,1);
+    z-index: 2;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
+    
+}
+
+
+
 #image-MoviePreview {
+    z-index: -1;
     border-radius: 1rem;
     width: 10rem;
     
