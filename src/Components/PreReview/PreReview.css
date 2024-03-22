@@ -22,7 +22,19 @@
   box-shadow: 0 0 10px white;
 }
 
-.spoilerTitle-container {
-  display: flex;
-  justify-content: space-between;
+#bodyContainer-PreReview {
+    z-index: 2;
+}
+
+.blurReview-PreReview {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.normalReview-PreReview {
+   
+}
+
+#title-PreReview {
+   
 }
