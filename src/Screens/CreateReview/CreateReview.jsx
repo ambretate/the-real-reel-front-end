@@ -81,7 +81,7 @@ const CreateReview = ({setToggleReviews, movieID, userID}) => {
           />
         </div>
         <button type='submit' className='submit-button'>
-          Submit
+          Submit Your Review
         </button>
       </form>
     </div>
