@@ -26,7 +26,7 @@ export const signIn = async (credentials) => {
 export const verifyUser = async () => {
   try {
     const resp = await api.get("/users/verify");
-    // console.log(resp)
+    // console.log("In verify ", resp)
     // localStorage.getItem("token", resp.data.token);
     // const user = jwtDecode(resp.data.token);
     return resp.data;
@@ -38,9 +38,9 @@ export const verifyUser = async () => {
 export const getFollows = async () => {
   try {
     const resp = await api.get("/users/follows");
-    localStorage.getItem("token", resp.data.token);
-    const user = jwtDecode(resp.data.token);
-    return user;
+    // localStorage.getItem("token", resp.data.token);
+    // const user = resp.data.token;
+    return resp.data;
   } catch (error) {
     console.error("Error getting follows: ", error);
   }
