@@ -7,13 +7,14 @@ import Footer from "../../Components/Footer/Footer.jsx";
 import { getMovie } from "../../Services/movies.js";
 import "./Movie.css";
 
-function Movie() {
+function Movie({user}) {
   // get id with useParams
   const { id } = useParams();
 
   // set states
   const [movie, setMovie] = useState({});
   const [reviews, setReviews] = useState([]);
+  const [toggleReviews, setToggleReviews] = useState(false)
   const [recs, setRecs] = useState([]);
 
   // fetch the movie with ID
