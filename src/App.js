@@ -29,6 +29,7 @@ function App() {
   return (
     <>
       <Routes>
+        
         <Route path="/" element={<SignIn setUser={setUser} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
 
