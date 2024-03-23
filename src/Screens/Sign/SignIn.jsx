@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { signIn } from "../../Services/users.js"; // Using 'signIn' function for authentication
 import { useNavigate } from "react-router-dom";
 
-function SignIn({ setUser }) {
+function SignIn({ setUser, setUpdateUser }) {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -12,7 +12,7 @@ function SignIn({ setUser }) {
     errorMsg: "",
   });
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleChange = (event) =>
     setForm({
@@ -22,9 +22,10 @@ function SignIn({ setUser }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let retrievedUser = await signIn(form)
-    setUser(retrievedUser)
-    navigate("/timeline")
+    let retrievedUser = await signIn(form);
+    setUser(retrievedUser);
+    setUpdateUser((prev) => (!prev));
+    navigate("/timeline");
   };
 
 return (

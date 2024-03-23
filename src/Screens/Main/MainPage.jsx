@@ -1,4 +1,4 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import "./MainPage.css";
 import { Link } from "react-router-dom";
 import Timeline from "../Timeline/Timeline.jsx";
@@ -6,6 +6,14 @@ import SearchBar from "../../Components/Search/Search";
 
 
 function MainPage({ user }) {
+  const [userObj, setUserObj] = useState({});
+
+  useEffect( () => {
+    setUserObj(user);
+  }, [user]);
+
+  console.log('this is the user', userObj);
+  
   return (
     <div className="main-container">
       <div className="user-details">
@@ -16,13 +24,13 @@ function MainPage({ user }) {
             className="empty-user-img"
           />
           {
-            user ?
-          <div className="user-detail-section2">
-            <h2>Hello, {user.username}</h2>
-            <Link to="/user">Go to Profile</Link>
-          </div>
-          :
-          <div>You need to log in!</div>
+            (userObj) ?
+              <div className="user-detail-section2">
+                <h2>Hello, {userObj.username}</h2>
+                <Link to="/user">Go to Profile</Link>
+              </div>
+            : 
+              <div>You need to log in!</div>
           }
         </div>
         <p className="browse-catalog">

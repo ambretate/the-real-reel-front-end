@@ -17,6 +17,7 @@ import CreateReview from "./Screens/CreateReview/CreateReview.jsx"
 
 function App() {
   const [user, setUser] = useState(null);
+  const [updateUser, setUpdateUser] = useState(null); 
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,13 +25,18 @@ function App() {
       user ? setUser(user) : setUser(null);
     };
     fetchUser();
-  }, []);
+  }, [updateUser]);
 
   return (
     <>
       <Routes>
         
-        <Route path="/" element={<SignIn setUser={setUser} />} />
+        <Route 
+          path="/" 
+          element={<SignIn setUser={setUser} 
+          setUpdateUser={setUpdateUser} />} 
+        />
+        
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
 
         <Route
