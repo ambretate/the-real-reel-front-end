@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import Header from "../../Components/Header/Header.jsx";
 import MovieBlock from "../../Components/MovieBlock/MovieBlock.jsx";
 import CreateReview from "../CreateReview/CreateReview.jsx";
@@ -41,6 +41,11 @@ function Movie({ user }) {
         <div id="mainContain-Movie">
           <MovieBlock movie={movie} />
         </div>
+        <NavLink to="/catalog">
+          <div id='backCatalog-PreReview'>
+            <p style={{"text-align": "center"}}>back to Catalog</p>
+          </div>
+        </NavLink>
         <div className="review-container">
           <h3 className="write-a-review">Write a review for {movie.title}</h3>
           <CreateReview

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteReview as deleteReviewService } from "../../Services/reviews.js";
 import { getUser, updateFollowings } from "../../Services/users.js";
-import {removeUnderscores} from "../../Services/conversions.js";
+import {removeUnderscores, parseMongoDate} from "../../Services/conversions.js";
 import "./PreReview.css";
 
 function PreReview({
@@ -16,7 +16,8 @@ function PreReview({
   
   const [user, setUser] = useState({});
   const [blur, setBlur] = useState(false);
-  const[userName, setUserName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [reviewDate, setReviewDate] = useState('');
  
 
   // set spoiler state
@@ -27,6 +28,7 @@ function PreReview({
       setUser(item);
       setBlur(review.hasSpoilers);
       setUserName(removeUnderscores(item.username));
+      setReviewDate(parseMongoDate(item.updatedAt));
     };
 
     fetchUser();
@@ -82,7 +84,7 @@ function PreReview({
             </button>
           )}
         </div>
-        <p>{review.updatedAt}</p>
+        <p>Written on: {reviewDate}</p>
         <div onClick={handleClick} id="bodyContainer-PreReview">
           {blur ? <p>This review contains spoilers! Click to see: </p> : null}
           <p

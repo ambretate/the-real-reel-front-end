@@ -57,5 +57,6 @@ export function removeUnderscores(str) {
 
 // convert mongo update and create at time into readable date
 export const parseMongoDate = (str) => {
-
+  const sliced = str.slice(0,10);
+  return parseDate(sliced);
 }
