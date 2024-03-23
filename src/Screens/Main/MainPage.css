@@ -22,6 +22,8 @@
 .timeline-container {
   width: 70%;
   background-color: #222831;
+  height: 92vh;
+  overflow: scroll;
 }
 
 .user-detail-section {
