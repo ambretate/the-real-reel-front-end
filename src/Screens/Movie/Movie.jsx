@@ -9,7 +9,7 @@ import { getMovie } from "../../Services/movies.js";
 import { getFollows } from "../../Services/users.js";
 import "./Movie.css";
 
-function Movie({user}) {
+function Movie({ user }) {
   // get id with useParams
   const { id } = useParams();
 
@@ -17,16 +17,16 @@ function Movie({user}) {
   const [movie, setMovie] = useState({});
   const [reviews, setReviews] = useState([]);
   const [follows, setFollows] = useState([]);
-  const [toggleReviews, setToggleReviews] = useState(false)
+  const [toggleReviews, setToggleReviews] = useState(false);
 
   // fetch the movie with ID
   useEffect(() => {
     const fetchMovie = async () => {
       const item = await getMovie(id);
-      const followsData = await getFollows()
+      const followsData = await getFollows();
       setMovie(item.movie);
       setReviews(item.reviews);
-      setFollows(followsData)
+      setFollows(followsData);
     };
 
     fetchMovie();
@@ -34,31 +34,37 @@ function Movie({user}) {
 
   // we should add a back button here to nav back to the main Catalog
   return (
-    <div className="movie-page">
-      <div id="mainContain-Movie">
-        <MovieBlock movie={movie} />
-        <h3 className="write-a-review">Write a review for {movie.title}</h3>
-        <CreateReview setToggleReviews={setToggleReviews} movieID={movie._id} userID={user?.id}/>
-        <h1 id="h1-Movie">Reviews</h1>
-        <div id="reviewContainer-Movie">
-          {reviews.map((review, idx) => {
-            let isFollowingUser = follows.following.some(follow => follow._id == review.userID)
-            return (
-              <PreReview
-                movie={movie}
-                review={review}
-                key={idx}
-                showUser={false}
-                isFollowingUser={isFollowingUser}
-                setToggleReviews={setToggleReviews}
-              />
-            )
-          })}
+      <div className="movie-page">
+        <div id="mainContain-Movie">
+          <MovieBlock movie={movie} />
         </div>
-        
+        <div className="review-container">
+          <h3 className="write-a-review">Write a review for {movie.title}</h3>
+          <CreateReview
+            setToggleReviews={setToggleReviews}
+            movieID={movie._id}
+            userID={user?.id}
+          />
+          <h1 id="h1-Movie">Reviews</h1>
+          <div id="reviewContainer-Movie">
+            {reviews.map((review, idx) => {
+              let isFollowingUser = follows.following.some(
+                (follow) => follow._id == review.userID
+              );
+              return (
+                <PreReview
+                  movie={movie}
+                  review={review}
+                  key={idx}
+                  showUser={false}
+                  isFollowingUser={isFollowingUser}
+                  setToggleReviews={setToggleReviews}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <Footer />
-    </div>
   );
 }
 

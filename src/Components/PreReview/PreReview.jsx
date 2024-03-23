@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
+import { deleteReview as deleteReviewService } from "../../Services/reviews.js";
 import { getUser, updateFollowings } from "../../Services/users.js";
 import "./PreReview.css";
 
-function PreReview({ movie, review, showUser, isFollowingUser, setToggleReviews }) {
+function PreReview({
+  movie,
+  review,
+  showUser,
+  isFollowingUser,
+  setToggleReviews,
+  userID,
+}) {
   const [user, setUser] = useState({});
   const [blur, setBlur] = useState(false);
+  const [deleteReviewState, setDeleteReviewState] = useState();
+
   // set spoiler state
-  
-  
   // fetch the userData with ID
   useEffect(() => {
     const fetchUser = async () => {
@@ -20,17 +28,16 @@ function PreReview({ movie, review, showUser, isFollowingUser, setToggleReviews 
   }, []);
 
   // toggle blur if contains spoiler is true
+
   function handleClick() {
-    // console.log('handle the click');
-    if(blur) {
-      console.log('turn off blur');
+    if (blur) {
       setBlur(false);
     }
   }
-  
-  async function handleFollowClick(user_ID){
-    await updateFollowings(user_ID)
-    setToggleReviews(prev => !prev)
+
+  async function handleFollowClick(user_ID) {
+    await updateFollowings(user_ID);
+    setToggleReviews((prev) => !prev);
   }
 
   const userName = !user ? "loading ..." : user.username;
@@ -51,33 +58,37 @@ function PreReview({ movie, review, showUser, isFollowingUser, setToggleReviews 
 
       <div id="rightContainer-PreReview">
         <div className="spoilerTitle-container">
-          <h1 id="movieTitle-PreReview">{movie.title}</h1>
-          {isFollowingUser ? <p>Already following!</p> : <button onClick={() => handleFollowClick(review.userID)}>Follow</button>}
+          <h2 id="reviewTitle-PreReview">
+            <u>{review.title}</u> By {userName}
+          </h2>
+          {isFollowingUser ? (
+            <button className="follow-button">Followed</button>
+          ) : (
+            <button
+              className="follow-button"
+              onClick={() => handleFollowClick(review.userID)}
+            >
+              Follow
+            </button>
+          )}
         </div>
-
-        <h2 id="reviewTitle-PreReview">
-          <u>{review.title}</u> By {userName}
-        </h2>
-        <div 
-          onClick={handleClick}
-          id="bodyContainer-PreReview"
-         
-        >
-          {
-            (blur) ?
-              <p>this review contains spoilers! click to see :)</p>
-            : null
-          }
-          <p 
-            id="body-PreReview"  
-            className={(blur) ? 'blurReview-PreReview' : 'normalReview-PreReview'}
-          > 
-           {review.review}
+        <div onClick={handleClick} id="bodyContainer-PreReview">
+          {blur ? <p>This review contains spoilers! Click to see: </p> : null}
+          <p
+            id="body-PreReview"
+            className={blur ? "blurReview-PreReview" : "normalReview-PreReview"}
+          >
+            {review.review}
           </p>
-
+          {user._id === review.userID ? (
+            <button
+              className="delete-button"
+              onClick={() => deleteReviewService(review._id)}
+            >
+              Delete
+            </button>
+          ) : null}
         </div>
-       
-
       </div>
     </div>
   );

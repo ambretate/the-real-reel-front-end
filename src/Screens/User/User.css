@@ -16,3 +16,13 @@
 .user-container a {
  padding-right: 10px;
 }
+
+@media (max-width: 430px) {
+    .user-container{
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 853px) {
+    /* looks good to me */
+}

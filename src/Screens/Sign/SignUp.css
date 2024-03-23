@@ -1,90 +1,132 @@
-body{
-    font-family: "Julius Sans One", sans-serif;
-    background-color: #31363F;;
+body {
+  font-family: "Julius Sans One", sans-serif;
+  background-color: #31363f;
 }
 
-.signup-container{
-    display: flex;
+.signup-container {
+  display: flex;
 }
 
-.logo-div{
-    width: 40%;
-    display: flex;
-    align-items: center;
-    height: 100vh;
+.logo-div {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
-.form-container{
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome h1 {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.welcome h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  color: white;
+}
+
+input#username {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  color: black;
+}
+
+input#confirmPassword {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  color: black;
+}
+
+input#email {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  color: black;
+}
+
+input#password {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.signup-form button {
+  background: none;
+  border: none;
+  font-family: "Julius Sans One", sans-serif;
+  color: white;
+  cursor: pointer;
+  font-size: larger;
+  margin-bottom: 50px;
+}
+
+.signup-form a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 430px) {
+  .signup-container {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    justify-content: center;
-    align-items: center;
+  }
+
+  .logo-div {
+    height: auto;
+    width: 100%;
+  }
+
+  .logo {
+    width: 100px;
+    margin-top: 20px;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  .signup-form {
+    width: 70%;
+  }
+
+  .signup-form label {
+    text-align: left;
+  }
 }
 
-.welcome h1{
-    font-size: 50px;
-    margin-bottom: 0;
+@media (max-width: 853px) {
+    .signup-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .logo-div {
+        height: auto;
+        width: 100%;
+      }
+      .form-container {
+        width: 100%;
+        padding-top: 100px;
+      }
 }
-
-.welcome h3{
-    font-size: 20px;
-    margin-bottom: 0;
-    font-weight: 400;
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    color: white;
-}
-
-input#username{
-    height: 30px;
-    border-radius: 20px;
-    border: 1px solid white;
-    margin-bottom: 20px;
-    color: black;
-}
-
-input#confirmPassword{
-    height: 30px;
-    border-radius: 20px;
-    border: 1px solid white;
-    margin-bottom: 20px;
-    color: black;
-}
-
-input#email{
-    height: 30px;
-    border-radius: 20px;
-    border: 1px solid white;
-    margin-bottom: 20px;
-    color: black;
-}
-
-input#password{
-    height: 30px;
-    border-radius: 20px;
-    border: 1px solid white;
-    margin-bottom: 20px;
-    color: black;
-}
-
-.signup-form button{
-    background: none;
-    border: none;
-    font-family: "Julius Sans One", sans-serif;
-    color: white;
-    cursor:pointer;
-    font-size: larger;
-    margin-bottom: 50px;
-}
-
-.signup-form a{
-    color: white;
-    text-decoration: none;
-}
-
-

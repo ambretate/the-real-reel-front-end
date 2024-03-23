@@ -17,7 +17,7 @@ function MovieBlock( { movie } ) {
           <h1 id="title-MovieBlock"> {movie.title} </h1>
           <h3 id="genreDateLength-MovieBlock"> 
             
-            Release Date: ‧  { parseDate(movie?.releaseDate) }  ‧ 
+            Release Date: { parseDate(movie?.releaseDate) }
           </h3>
           <p id="description-MovieBlock"> {movie.description} </p>
           <p id="budget-MovieBlock"> {movie.budget} </p>

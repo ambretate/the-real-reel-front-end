@@ -31,10 +31,25 @@
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-.normalReview-PreReview {
-   
+.follow-button{
+  color: black;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: white;  
 }
 
-#title-PreReview {
-   
+.delete-button{
+  color: black;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: white;  
+  margin: 5px;
+}
+
+.spoilerTitle-container{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
