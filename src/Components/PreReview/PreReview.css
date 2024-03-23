@@ -27,7 +27,7 @@
 }
 
 .blurReview-PreReview {
-    color: transparent;
+    color: rgba(0,0,0,0);
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
@@ -51,5 +51,5 @@
 .spoilerTitle-container{
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 2rem;
 }

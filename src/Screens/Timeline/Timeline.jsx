@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUserTimeline } from "../../Services/users.js";
 import { getMovie } from "../../Services/movies.js";
+import { removeUnderscores } from "../../Services/conversions.js";
 import "./Timeline.css";
 import { Link } from "react-router-dom";
 
@@ -26,7 +27,7 @@ const YourComponent = () => {
         <div className="review-box-tl" key={user._id}>
           <div className="movie-review-details">
             <div className="user-info-in-review">
-              <h3 className="username-h3">{user.userID.username}</h3>
+              <h3 className="username-h3">{removeUnderscores(user.userID.username)}</h3>
               <p>{new Date(user.createdAt).toLocaleDateString()}</p>
             </div>
             <div className="img-title-review">

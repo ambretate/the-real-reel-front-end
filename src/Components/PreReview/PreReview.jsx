@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteReview as deleteReviewService } from "../../Services/reviews.js";
 import { getUser, updateFollowings } from "../../Services/users.js";
+import {removeUnderscores, parseMongoDate} from "../../Services/conversions.js";
 import "./PreReview.css";
 
 function PreReview({
@@ -10,10 +11,14 @@ function PreReview({
   isFollowingUser,
   setToggleReviews,
   userID,
+  
 }) {
+  
   const [user, setUser] = useState({});
   const [blur, setBlur] = useState(false);
-  const [deleteReviewState, setDeleteReviewState] = useState();
+  const [userName, setUserName] = useState('');
+  const [reviewDate, setReviewDate] = useState('');
+ 
 
   // set spoiler state
   // fetch the userData with ID
@@ -22,26 +27,33 @@ function PreReview({
       const item = await getUser(review.userID);
       setUser(item);
       setBlur(review.hasSpoilers);
+      setUserName(removeUnderscores(item.username));
+      setReviewDate(parseMongoDate(item.updatedAt));
     };
 
     fetchUser();
   }, []);
 
   // toggle blur if contains spoiler is true
-
   function handleClick() {
     if (blur) {
       setBlur(false);
     }
   }
 
+  // delete this review and update toggle review state in parent Movie
+  async function handleDelete(id) {
+    await deleteReviewService(id);
+    setToggleReviews((prev) => !prev);
+  }
+  // follow user of review and update toggle review state in parent Movie
   async function handleFollowClick(user_ID) {
     await updateFollowings(user_ID);
     setToggleReviews((prev) => !prev);
   }
 
-  const userName = !user ? "loading ..." : user.username;
-
+  // werid error handling here because it seems the first 
+  //const userName = !user ? "loading ..." : user.username;
   return (
     <div id="mainContainer-PreReview">
       <div id="leftContainer-PreReview">
@@ -72,6 +84,7 @@ function PreReview({
             </button>
           )}
         </div>
+        <p>Written on: {reviewDate}</p>
         <div onClick={handleClick} id="bodyContainer-PreReview">
           {blur ? <p>This review contains spoilers! Click to see: </p> : null}
           <p
@@ -80,14 +93,25 @@ function PreReview({
           >
             {review.review}
           </p>
-          {/* {user._id === review.userID ? ( */}
-            <button
-              className="delete-button"
-              onClick={() => deleteReviewService(review._id)}
-            >
-              Delete
-            </button>
-          {/* ) : null}  */}
+          {
+           
+            userID === review.userID ? (
+              <button
+                className="delete-button"
+                onClick={ () => {
+                  if (window.confirm('U sure you want to delete this item?')) {
+                    handleDelete();
+                    
+                  } else {
+                    
+                  }
+                }}
+                
+              >
+                Delete
+              </button>
+            ) : null
+          } 
         </div>
       </div>
     </div>

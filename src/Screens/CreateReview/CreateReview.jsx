@@ -20,7 +20,7 @@ const CreateReview = ({ setToggleReviews, movieID, userID }) => {
       ...prevReview,
       [name]: value,
     }));
-    console.log(review);
+    // console.log(review);
   };
 
   const handleCheckBoxChange = (event) => {
