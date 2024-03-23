@@ -69,7 +69,7 @@ const SearchBar = () => {
       {userResult.username && (
         <div>
           <div className="results">
-            <p>{userResult.username}</p>
+            <Link to={userResult.username}><p>{userResult.username}</p></Link>
           </div>
         </div>
       )}

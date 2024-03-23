@@ -25,10 +25,10 @@ function MainPage({ user }) {
           <div>You need to log in!</div>
           }
         </div>
-        <SearchBar />
-        <p>
-          <Link to="/catalog" className="browse-catalog">Browse Catalog</Link>
+        <p className="browse-catalog">
+          <Link to="/catalog">Browse Catalog</Link>
         </p>
+        <SearchBar />
         {/* <p>VIEW YOUR LISTS</p> */}
       </div>
       <div className="timeline-container">
