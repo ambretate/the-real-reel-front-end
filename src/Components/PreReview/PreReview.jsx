@@ -80,14 +80,14 @@ function PreReview({
           >
             {review.review}
           </p>
-          {user._id === review.userID ? (
+          {/* {user._id === review.userID ? ( */}
             <button
               className="delete-button"
               onClick={() => deleteReviewService(review._id)}
             >
               Delete
             </button>
-          ) : null}
+          {/* ) : null}  */}
         </div>
       </div>
     </div>
