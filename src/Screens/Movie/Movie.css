@@ -1,10 +1,10 @@
-.movie-page{
-    display: flex;
-    flex-direction: column;
+.movie-page {
+  display: flex;
+  flex-direction: column;
 }
 
-.review-container{
-    padding-top: 80px;
+.review-container {
+  padding-top: 80px;
 }
 
 #mainContain-Movie {
@@ -36,6 +36,19 @@
   padding-left: 180px;
 }
 
+@media (max-width: 853px) {
+  .review-container {
+    padding-top: 0;
+  }
+  #mainContainer-PreReview {
+    flex-flow: row nowrap;
+  }
+
+  #mainContain-Movie{
+    padding-bottom: 0;
+  }
+}
+
 @media (max-width: 430px) {
   #mainContainer-MovieBlock {
     flex-flow: nowrap;
@@ -45,26 +58,18 @@
 
   .write-a-review {
     padding-left: 0;
-    padding-top: 80px;
+    padding-top: 250px;
   }
 
-  form.create-form{
+  form.create-form {
     padding-top: 0;
     width: 90%;
   }
-  #mainContainer-PreReview{
+  #mainContainer-PreReview {
     width: 90%;
+    flex-direction: column;
   }
-  #movieImage-PreReview{
+  #movieImage-PreReview {
     margin: 1rem 0;
   }
-}
-
-@media (max-width: 853px) {
-    .review-container{
-        padding-top: 0;
-    }
-    #mainContainer-PreReview{
-        flex-flow: row nowrap;
-    }
 }
