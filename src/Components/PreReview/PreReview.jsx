@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { deleteReview as deleteReviewService } from "../../Services/reviews.js";
 import { getUser, updateFollowings } from "../../Services/users.js";
-import {removeUnderscores, parseMongoDate} from "../../Services/conversions.js";
+import {
+  removeUnderscores,
+  parseMongoDate,
+} from "../../Services/conversions.js";
 import "./PreReview.css";
 
 function PreReview({
@@ -11,14 +14,11 @@ function PreReview({
   isFollowingUser,
   setToggleReviews,
   userID,
-  
 }) {
-  
   const [user, setUser] = useState({});
   const [blur, setBlur] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [reviewDate, setReviewDate] = useState('');
- 
+  const [userName, setUserName] = useState("");
+  const [reviewDate, setReviewDate] = useState("");
 
   // set spoiler state
   // fetch the userData with ID
@@ -52,7 +52,7 @@ function PreReview({
     setToggleReviews((prev) => !prev);
   }
 
-  // werid error handling here because it seems the first 
+  // werid error handling here because it seems the first
   //const userName = !user ? "loading ..." : user.username;
   return (
     <div id="mainContainer-PreReview">
