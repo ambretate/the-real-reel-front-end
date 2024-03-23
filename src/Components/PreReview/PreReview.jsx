@@ -93,19 +93,25 @@ function PreReview({
           >
             {review.review}
           </p>
-          {userID === review.userID ? (
-            <button
-              className="delete-button"
-              onClick={() => {
-                if (window.confirm("U sure you want to delete this item?")) {
-                  handleDelete();
-                } else {
-                }
-              }}
-            >
-              Delete
-            </button>
-          ) : null}
+          {
+           
+            userID === review.userID ? (
+              <button
+                className="delete-button"
+                onClick={ () => {
+                  if (window.confirm('U sure you want to delete this item?')) {
+                    handleDelete(review._id);
+                    
+                  } else {
+                    
+                  }
+                }}
+                
+              >
+                Delete
+              </button>
+            ) : null
+          } 
         </div>
       </div>
     </div>
