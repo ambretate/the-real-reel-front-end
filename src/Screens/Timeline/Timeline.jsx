@@ -23,28 +23,36 @@ const YourComponent = () => {
   return (
     <div className="rewievs-container-tl">
       <h1 className="latest-reviews">Latest Reviews</h1>
-      {timelineUsers.length > 0 && timelineUsers.map((user) => (
-        <div className="review-box-tl" key={user._id}>
-          <div className="movie-review-details">
-            <div className="user-info-in-review">
-              <h3 className="username-h3">{removeUnderscores(user.userID.username)}</h3>
-              <p>{new Date(user.createdAt).toLocaleDateString()}</p>
-            </div>
-            <div className="img-title-review">
-              <img
-                src={user.movieID.image}
-                alt={user.movieID.title}
-                className="movie-review-img"
-                />
-              <div className="title-review">
-                <Link to={`/catalog/${user.movieID._id}`}><h3>{user.movieID.title}</h3></Link>
-                <h4>{user.title}</h4>
-                <p className="user-review-in-timeline">{user.review}</p>
+      {
+        (timelineUsers.length > 0) ?
+          timelineUsers.map((user) => (
+            <div className="review-box-tl" key={user._id}>
+              <div className="movie-review-details">
+                <div className="user-info-in-review">
+                  <h3 className="username-h3">{removeUnderscores(user.userID.username)}</h3>
+                  <p>{new Date(user.createdAt).toLocaleDateString()}</p>
+                </div>
+                <div className="img-title-review">
+                  <img
+                    src={user.movieID.image}
+                    alt={user.movieID.title}
+                    className="movie-review-img"
+                    />
+                  <div className="title-review">
+                    <Link to={`/catalog/${user.movieID._id}`}><h3>{user.movieID.title}</h3></Link>
+                    <h4>{user.title}</h4>
+                    <p className="user-review-in-timeline">{user.review}</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      ))}
+          ))
+          : 
+            <div>
+              <h1>Feeling Lonely? Follow some Real Reel users and get updates on their latest reviews 😈 😈 😈 😈</h1>
+            </div>
+        
+      }
     </div>
   );
 };

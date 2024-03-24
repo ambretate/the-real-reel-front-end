@@ -74,7 +74,10 @@ function PreReview({
       <div id="rightContainer-PreReview">
        
         <h2 id="reviewTitle-PreReview">
-          <u>{review.title}</u><br></br> <span className="name-PreReview">By {userName}</span>
+          <u>{review.title}</u><br></br> 
+          <span className="name-PreReview">
+            By <u className="name-PreReview"> {userName} </u> 
+          </span>
         </h2>
         {isFollowingUser ? (
           <button className="follow-button">Followed</button>
