@@ -13,7 +13,8 @@ import Review from "./Screens/Review/Review.jsx";
 import { verifyUser } from "./Services/users.js";
 import Following from "./Components/Follows/Following.jsx";
 import Follower from "./Components/Follows/Follower.jsx";
-import CreateReview from "./Screens/CreateReview/CreateReview.jsx"
+import CreateReview from "./Screens/CreateReview/CreateReview.jsx";
+import UpdateAccount from "./Screens/EditUser/EditUser.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,7 +30,6 @@ function App() {
   return (
     <>
       <Routes>
-        
         <Route path="/" element={<SignIn setUser={setUser} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
 
@@ -53,13 +53,27 @@ function App() {
           path="/catalog"
           element={
             <Layout user={user}>
-              <Catalog user={user}/>
+              <Catalog user={user} />
             </Layout>
           }
         />
 
-        <Route path="catalog/:id" element={<Layout><Movie user={user}/></Layout>}/>
-        <Route path="movies/:id" element={<Layout><Movie user={user}/></Layout>} />
+        <Route
+          path="catalog/:id"
+          element={
+            <Layout>
+              <Movie user={user} />
+            </Layout>
+          }
+        />
+        <Route
+          path="movies/:id"
+          element={
+            <Layout>
+              <Movie user={user} />
+            </Layout>
+          }
+        />
         <Route path="users/timeline" element={<Timeline user={user} />} />
         <Route
           path="/following"
@@ -74,6 +88,14 @@ function App() {
           element={
             <Layout>
               <Follower />
+            </Layout>
+          }
+        />
+        <Route
+          path="/updateaccount"
+          element={
+            <Layout>
+              <UpdateAccount user={user} />
             </Layout>
           }
         />
