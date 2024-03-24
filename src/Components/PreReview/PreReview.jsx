@@ -19,20 +19,30 @@ function PreReview({
   const [blur, setBlur] = useState(false);
   const [userName, setUserName] = useState("");
   const [reviewDate, setReviewDate] = useState("");
-
-  // set spoiler state
+  
+  
   // fetch the userData with ID
   useEffect(() => {
     const fetchUser = async () => {
-      const item = await getUser(review.userID);
-      setUser(item);
-      setBlur(review.hasSpoilers);
-      setUserName(removeUnderscores(item.username));
-      setReviewDate(parseMongoDate(item.updatedAt));
+      try {
+        const item = await getUser(review.userID);
+        //console.log('item', item)
+      
+        setUser(item);
+        setUserName(removeUnderscores(item.username));
+        setReviewDate(parseMongoDate(item.updatedAt));
+      } catch {
+        console.log('no user data or something idk');
+      }
     };
 
     fetchUser();
-  }, []);
+  }, [review.userID]);
+
+  // set has spoilers
+  useEffect( () => {
+    setBlur(review.hasSpoilers);
+  }, [review.hasSpoilers]);
 
   // toggle blur if contains spoiler is true
   function handleClick() {

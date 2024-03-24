@@ -24,12 +24,17 @@ function Movie({ user }) {
   // fetch the movie with ID
   useEffect(() => {
     const fetchMovie = async () => {
-      const item = await getMovie(id);
-      const followsData = await getFollows();
-      setMovie(item.movie);
-      setReviews(item.reviews);
-      console.log('checkout what a review obj loook like', item.reviews);
-      setFollows(followsData);
+      try {
+
+        const item = await getMovie(id);
+        const followsData = await getFollows();
+        setMovie(item.movie);
+        setReviews(item.reviews);
+        //console.log('checkout what a review obj loook like', item.reviews);
+        setFollows(followsData);
+      } catch {
+        console.log('not fetchin');
+      }
     };
 
     fetchMovie();
@@ -43,7 +48,7 @@ function Movie({ user }) {
         </div>
         <NavLink to="/catalog">
           <div id='backCatalog-PreReview'>
-            <p style={{"text-align": "center"}}>back to Catalog</p>
+            <p style={{"textAlign": "center"}}>back to Catalog</p>
           </div>
         </NavLink>
         <div className="review-container">
@@ -58,7 +63,7 @@ function Movie({ user }) {
             {
               (reviews) ?
                 reviews.map((review, idx) => {
-                  console.log('this is the review.map output',review, idx);
+                  //console.log('this is the review.map output',review, idx);
                   let isFollowingUser = follows.following.some(
                     (follow) => follow._id === review.userID
                   );
