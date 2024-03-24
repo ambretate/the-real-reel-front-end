@@ -15,7 +15,8 @@ function PreReview({
   setToggleReviews,
   userID,
 }) {
-  const [user, setUser] = useState({});
+  //const [user, setUser] = useState({});
+  const [expand, setExpand] = useState(false);
   const [blur, setBlur] = useState(false);
   const [userName, setUserName] = useState("");
   const [reviewDate, setReviewDate] = useState("");
@@ -28,7 +29,7 @@ function PreReview({
         const item = await getUser(review.userID);
         //console.log('item', item)
       
-        setUser(item);
+        //setUser(item);
         setUserName(removeUnderscores(item.username));
         setReviewDate(parseMongoDate(item.updatedAt));
       } catch {
@@ -51,6 +52,11 @@ function PreReview({
     }
   }
 
+  // handle exapnd Click
+  function handleExpandClick() {
+    setExpand((prev) => !prev);
+  }
+
   // delete this review and update toggle review state in parent Movie
   async function handleDelete(id) {
     await deleteReviewService(id);
@@ -65,49 +71,43 @@ function PreReview({
   // werid error handling here because it seems the first
   //const userName = !user ? "loading ..." : user.username;
   return (
-    <div id="mainContainer-PreReview">
-      <div id="leftContainer-PreReview">
-        {!showUser ? (
-          <img
-            id="movieImage-PreReview"
-            src={movie.image}
-            alt={`Movie Title poster for ${movie.title}`}
-          />
-        ) : (
-          <h1 id="userName-PreReview">{userName}</h1>
-        )}
+    <div id={(expand) ? "mainContainerExpand-PreReview" : "mainContainer-PreReview"}>
+      <div id={(expand) ? "leftContainerExpand-PreReview" :"leftContainer-PreReview" }>
+        {
+          !showUser ? (
+            <img
+              id="movieImage-PreReview"
+              src={movie.image}
+              alt={`Movie Title poster for ${movie.title}`}
+            />
+          ) : null
+        }
       </div>
 
-      <div id="rightContainer-PreReview">
+      <div id={(expand) ? "rightContainerExpand-PreReview" :"rightContainer-PreReview" }>
         <div className="spoilerTitle-container">
           <h2 id="reviewTitle-PreReview">
-            <u>{review.title}</u> By {userName}
+            <u>{review.title}</u>
           </h2>
+          <p id="author-PreReview">
+          By {userName}
+          </p>
           {isFollowingUser ? (
-            <button className="follow-button">Followed</button>
+            <button id="followButton-PreReview">Followed</button>
           ) : (
             <button
-              className="follow-button"
+              id="followButton-PreReview"
               onClick={() => handleFollowClick(review.userID)}
             >
               Follow
             </button>
           )}
         </div>
-        <p>Written on: {reviewDate}</p>
-        <div onClick={handleClick} id="bodyContainer-PreReview">
-          {blur ? <p>This review contains spoilers! Click to see: </p> : null}
-          <p
-            id="body-PreReview"
-            className={blur ? "blurReview-PreReview" : "normalReview-PreReview"}
-          >
-            {review.review}
-          </p>
-          {
-           
+        <p id="date-PreReview">Written on: {reviewDate}</p>
+        {
             userID === review.userID ? (
               <button
-                className="delete-button"
+                id="deleteButton-PreReview"
                 onClick={ () => {
                   if (window.confirm('U sure you want to delete this item?')) {
                     handleDelete(review._id);
@@ -118,10 +118,27 @@ function PreReview({
                 }}
                 
               >
-                Delete
+                Delete Your Review
               </button>
             ) : null
-          } 
+          }
+          <buttton
+            onClick={handleExpandClick}
+            id="expandReviewButton-PreReview"
+          > Expand Review </buttton> 
+        <div 
+          onClick={handleClick} 
+          
+          id={(expand) ? "openBody-PreReview" : "bodyClippedContainer-PreReview"}
+        >
+          {blur ? <p>This review contains spoilers! Click to see: </p> : null}
+          <p
+            id="body-PreReview"
+            className={blur ? "blurReview-PreReview" : "normalReview-PreReview"}
+          >
+            {review.review}
+          </p>
+          
         </div>
       </div>
     </div>

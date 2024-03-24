@@ -1,37 +1,117 @@
 #mainContainer-PreReview {
-  position: relative;
   background-color: #868686;
   border-radius: 1rem;
   width: 70vw;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  height: 12rem;
+  
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-areas: 
+  "left right"
+  ;
 }
 
+#mainContainerExpand-PreReview {
+  background-color: #868686;
+  border-radius: 1rem;
+  width: 70vw;
+  
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-areas: 
+  "left right"
+}
+
+
+
 #leftContainer-PreReview {
-  width: 20%;
+  grid-area: left;
+  position: relative;
+  height:  12rem;
+}
+
+#leftContainerExpand-PreReview {
+  grid-area: left;
+  position: relative;
+  
 }
 
 #rightContainer-PreReview {
-  width: 80%;
+  grid-area: right;
+  position: relative;
+  height:  12rem;
 }
+
+#rightContainer-PreReview {
+  grid-area: right;
+  position: relative;
+  
+}
+
+
+#reviewTitle-PreReview {
+  position: absolute;
+  top: 0%;
+  left: 2%;
+}
+
+#author-PreReview {
+  position: absolute;
+  top: 7%;
+  right: 10%;
+  font-size: 1rem;
+}
+
+#date-PreReview {
+  position: absolute;
+  top: 0%;
+  left: 2%;
+  font-size: 0.8rem;
+}
+
 #movieImage-PreReview {
   border-radius: 1rem;
-  height: 8rem;
-  margin: 1rem;
+  margin: 10% 10%;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  overflow: hidden;
+  
   box-shadow: 0 0 10px white;
 }
 
-#bodyContainer-PreReview {
-    z-index: 2;
+#bodyClippedContainer-PreReview {
+  position: absolute;
+  top: 32%;
+  left: 2%;
+  height: 6rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
+
+.openBody-PreReview {
+  position: absolute;
+  height: auto;
+  
+  
+}
+
 
 .blurReview-PreReview {
-    color: rgba(0,0,0,0);
-    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  color: rgba(0,0,0,0);
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-.follow-button{
+#date-PreReview {
+  position: absolute;
+  top: 20%;
+  left: 2%;
+}
+
+#followButton-PreReview {
+  position: absolute;
+  top: 27%;
+  right: 11%;
   color: black;
   height: 20px;
   border-radius: 10px;
@@ -39,7 +119,23 @@
   background-color: white;  
 }
 
-.delete-button{
+#deleteButton-PreReview {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  color: black;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: white;  
+  margin: 5px;
+}
+
+#expandReviewButton-PreReview {
+  font-size: 0.75rem;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
   color: black;
   height: 20px;
   border-radius: 10px;

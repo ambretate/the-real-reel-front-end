@@ -7,10 +7,17 @@
     margin: 3px;
 }
 
-.movie-review-img{
-    width: 130px;
-    border-radius: 20px;
+#movie-review-Container{
+    height: 10rem;
+    width: 10rem;   
+    border-radius: 1rem;
     padding-left: 10px;
+}
+
+#movie-review-img-Timeline {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .movie-review-details{
@@ -44,7 +51,7 @@
 
 .img-title-review{
     display: flex;
-    width: 100%;
+    width: 60%;
 }
 
 .title-review{

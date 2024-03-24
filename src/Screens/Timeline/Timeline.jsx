@@ -31,11 +31,13 @@ const YourComponent = () => {
               <p>{new Date(user.createdAt).toLocaleDateString()}</p>
             </div>
             <div className="img-title-review">
-              <img
-                src={user.movieID.image}
-                alt={user.movieID.title}
-                className="movie-review-img"
+              <div id="movie-review-Container">
+                <img
+                  src={user.movieID.image}
+                  alt={user.movieID.title}
+                  id="movie-review-img-Timeline"
                 />
+              </div>
               <div className="title-review">
                 <Link to={`/catalog/${user.movieID._id}`}><h3>{user.movieID.title}</h3></Link>
                 <h4>{user.title}</h4>
