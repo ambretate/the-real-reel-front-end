@@ -28,7 +28,7 @@ function Movie({ user }) {
       const followsData = await getFollows();
       setMovie(item.movie);
       setReviews(item.reviews);
-      console.log('checkout what a review obj loook like', item.reviews);
+      //console.log('checkout what a review obj loook like', item.reviews);
       setFollows(followsData);
     };
 
@@ -58,7 +58,7 @@ function Movie({ user }) {
             {
               (reviews) ?
                 reviews.map((review, idx) => {
-                  console.log('this is the review.map output',review, idx);
+                  //console.log('this is the review.map output',review, idx);
                   let isFollowingUser = follows.following.some(
                     (follow) => follow._id === review.userID
                   );

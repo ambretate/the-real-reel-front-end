@@ -60,3 +60,8 @@ export const parseMongoDate = (str) => {
   const sliced = str.slice(0,10);
   return parseDate(sliced);
 }
+
+export const extractTime = (str) => {
+  const sliced = str.slice(11,16);
+  return sliced;
+}

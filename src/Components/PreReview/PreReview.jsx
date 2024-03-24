@@ -4,6 +4,7 @@ import { getUser, updateFollowings } from "../../Services/users.js";
 import {
   removeUnderscores,
   parseMongoDate,
+  extractTime
 } from "../../Services/conversions.js";
 import "./PreReview.css";
 
@@ -19,6 +20,7 @@ function PreReview({
   const [blur, setBlur] = useState(false);
   const [userName, setUserName] = useState("");
   const [reviewDate, setReviewDate] = useState("");
+  const [time, setTime] = useState("");
 
   // set spoiler state
   // fetch the userData with ID
@@ -29,6 +31,7 @@ function PreReview({
       setBlur(review.hasSpoilers);
       setUserName(removeUnderscores(item.username));
       setReviewDate(parseMongoDate(item.updatedAt));
+      setTime(extractTime( item.updatedAt ) );
     };
 
     fetchUser();
@@ -69,22 +72,22 @@ function PreReview({
       </div>
 
       <div id="rightContainer-PreReview">
-        <div className="spoilerTitle-container">
-          <h2 id="reviewTitle-PreReview">
-            <u>{review.title}</u> By {userName}
-          </h2>
-          {isFollowingUser ? (
-            <button className="follow-button">Followed</button>
-          ) : (
-            <button
-              className="follow-button"
-              onClick={() => handleFollowClick(review.userID)}
-            >
-              Follow
-            </button>
-          )}
-        </div>
-        <p>Written on: {reviewDate}</p>
+       
+        <h2 id="reviewTitle-PreReview">
+          <u>{review.title}</u><br></br> <span className="name-PreReview">By {userName}</span>
+        </h2>
+        {isFollowingUser ? (
+          <button className="follow-button">Followed</button>
+        ) : (
+          <button
+            className="follow-button"
+            onClick={() => handleFollowClick(review.userID)}
+          >
+            Follow
+          </button>
+        )}  
+        
+        <p>Written on: {reviewDate} @ {time} </p>
         <div onClick={handleClick} id="bodyContainer-PreReview">
           {blur ? <p>This review contains spoilers! Click to see: </p> : null}
           <p
@@ -99,7 +102,7 @@ function PreReview({
               <button
                 className="delete-button"
                 onClick={ () => {
-                  if (window.confirm('U sure you want to delete this item?')) {
+                  if (window.confirm(`R U sure you want to delete you're amazing review of ${movie.title}?`)) {
                     handleDelete(review._id);
                     
                   } else {
@@ -108,7 +111,7 @@ function PreReview({
                 }}
                 
               >
-                Delete
+                Delete Your Review
               </button>
             ) : null
           } 
