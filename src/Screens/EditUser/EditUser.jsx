@@ -4,8 +4,9 @@ import { updateUser } from "../../Services/users.js";
 import "./EditUser.css";
 
 function UpdateAccount({ user }) {
+  
   const [userName, setUserName] = useState({
-    username: "",
+    "username": "",
   });
 
   let navigate = useNavigate();
@@ -14,7 +15,7 @@ function UpdateAccount({ user }) {
     event.preventDefault();
 
     await updateUser(user.id, userName);
-    navigate("/timeline");
+    navigate("/");
   };
 
   const handleChangeUserName = (event) =>
@@ -24,16 +25,17 @@ function UpdateAccount({ user }) {
     });
 
   const [password, setPassword] = useState({
-    password: "",
-    passwordConfirmation: "",
+    "password": "",
+    "passwordConfirmation": "",
   });
 
   const handlePassword = async (event) => {
     event.preventDefault();
 
     if (password.password === password.passwordConfirmation) {
+      console.log(user.id, password.password)
       await updateUser(user.id, password.password);
-      navigate("/timeline");
+      navigate("/");
     } else {
       alert("Passwords do not match.");
     }
@@ -49,7 +51,8 @@ function UpdateAccount({ user }) {
     <div className="updateaccount-container">
       <div className="form-container">
         <div className="update">
-          <h1>Update Account</h1>
+          <h1 className="updateAccount">Update Account</h1>
+          <h3 className="updateSignInAgain">You will be prompted to sign in again<br/>after updating your account.</h3>
         </div>
         <form onSubmit={handleUserName} className="update-form">
           <label htmlFor="username">New Username:</label>
