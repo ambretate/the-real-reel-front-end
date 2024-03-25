@@ -58,3 +58,15 @@
 .user-review-in-timeline{
     font-family: "Khand", sans-serif;
 }
+
+.user-picture-tl{
+    width: 70px;
+    border-radius: 50%;
+}
+
+.user-info-container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
