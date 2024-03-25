@@ -12,6 +12,7 @@ const SignUp = (props) => {
     email: "",
     password: "",
     passwordConfirmation: "",
+    profilePicture: "",
     isError: false,
     errorMsg: "",
   });
@@ -36,6 +37,7 @@ const SignUp = (props) => {
         email: "",
         password: "",
         passwordConfirmation: "",
+        profilePicture: "",
         isError: true,
         errorMsg: "Sign Up Details Invalid",
       });
@@ -55,7 +57,7 @@ const SignUp = (props) => {
     }
   };
 
-  const { username, email, password, passwordConfirmation } = form;
+  const { username, email, password, passwordConfirmation, profilePicture} = form;
 
   return (
     <div className="signup-container">
@@ -110,6 +112,17 @@ const SignUp = (props) => {
             onChange={handleChange}
             required
           />
+          <br />
+          <label htmlFor="profilePicture">Profile Picture URL</label>
+          <input
+            type="text"
+            id="profilePicture"
+            name="profilePicture"
+            value={profilePicture}
+            onChange={handleChange}
+            required
+          />
+          <br />
           {renderError()}
           <br />
           <p>

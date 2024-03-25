@@ -40,6 +40,11 @@ form {
   color: white;
 }
 
+.signup-form input{
+  font-family: monospace;
+  font-size: medium;
+}
+
 input#username {
   height: 30px;
   border-radius: 20px;
@@ -57,6 +62,14 @@ input#confirmPassword {
 }
 
 input#email {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  color: black;
+}
+
+input#profilePicture{
   height: 30px;
   border-radius: 20px;
   border: 1px solid white;

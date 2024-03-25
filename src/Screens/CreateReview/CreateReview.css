@@ -14,7 +14,7 @@ select:focus {
 input,
 textarea {
   font-size: 25px;
-  font-family: "Khand", sans-serif;
+  font-family: monospace, sans-serif;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -26,7 +26,7 @@ textarea {
   border-bottom-right-radius: 10px;
   background-color: rgba(255, 255, 255, 0.591);
   color: black;
-  font-family: "Khand", sans-serif;
+  font-family: monospace, sans-serif;
 }
 
 .input-title {
@@ -34,7 +34,7 @@ textarea {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   color: black;
-  font-family: "Khand", sans-serif;
+  font-family: monospace, sans-serif;
 }
 
 .input-hasSpoiler {
