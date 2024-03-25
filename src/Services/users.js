@@ -2,6 +2,7 @@ import api from "./apiConfig.js";
 import { jwtDecode } from "jwt-decode";
 
 export const signUp = async (credentials) => {
+  console.log('Credentials:', credentials);
   try {
     const resp = await api.post("/users/sign-up", credentials);
     localStorage.setItem("token", resp.data.token);
@@ -88,12 +89,13 @@ export const getUserByUsername = async (username) => {
   }
 };
 
-export const getUser = async (id) => {
+export const getUser = async ({ userId }) => {
   try {
-    const resp = await api.get(`/users/${id}`);
+    const resp = await api.get(`/users/${userId}`);
     return resp.data;
   } catch (error) {
     console.error("Error getting user: ", error);
+    throw error; // Re-throw the error to propagate it to the caller
   }
 };
 

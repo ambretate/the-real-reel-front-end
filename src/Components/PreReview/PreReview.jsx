@@ -24,41 +24,52 @@ function PreReview({
   const [reviewDate, setReviewDate] = useState("");
   const [time, setTime] = useState("");
 
-  // set spoiler state
-  // fetch the userData with ID
   useEffect(() => {
     const fetchUser = async () => {
-      const item = await getUser(review.userID);
-      setUser(item);
-      setBlur(review.hasSpoilers);
-      setUserName(removeUnderscores(item.username));
-      setReviewDate(parseMongoDate(item.updatedAt));
-      setTime(extractTime( item.updatedAt ) );
+      try {
+        const item = await getUser(review.userID);
+        setUser(item);
+        setBlur(review.hasSpoilers);
+        setUserName(removeUnderscores(item.username));
+        setReviewDate(parseMongoDate(item.updatedAt));
+        setTime(extractTime( item.updatedAt ) );
+      } catch (error) {
+        console.error("Error getting user:", error);
+        // Handle error: set user state to indicate error or show error message to the user
+      }
     };
-
+  
     fetchUser();
   }, []);
 
-  // toggle blur if contains spoiler is true
   function handleClick() {
     if (blur) {
       setBlur(false);
     }
   }
 
-  // delete this review and update toggle review state in parent Movie
   async function handleDelete(id) {
-    await deleteReviewService(id);
-    setToggleReviews((prev) => !prev);
-  }
-  // follow user of review and update toggle review state in parent Movie
-  async function handleFollowClick(user_ID) {
-    await updateFollowings(user_ID);
-    setToggleReviews((prev) => !prev);
+    try {
+      if (window.confirm("Are you sure you want to delete this item?")) {
+        await deleteReviewService(id);
+        setToggleReviews((prev) => !prev);
+      }
+    } catch (error) {
+      console.error("Error deleting review:", error);
+      // Handle error: display error message or handle accordingly
+    }
   }
 
-  // werid error handling here because it seems the first
-  //const userName = !user ? "loading ..." : user.username;
+  async function handleFollowClick(user_ID) {
+    try {
+      await updateFollowings(user_ID);
+      setToggleReviews((prev) => !prev);
+    } catch (error) {
+      console.error("Error updating followings:", error);
+      // Handle error: display error message or handle accordingly
+    }
+    }
+  
   return (
     <div id="mainContainer-PreReview">
       <div id="leftContainer-PreReview">
@@ -96,13 +107,14 @@ function PreReview({
         
         <p>Written on: {reviewDate} @ {time} </p>
         <div onClick={handleClick} id="bodyContainer-PreReview">
-          {blur ? <p>This review contains spoilers! Click to see: </p> : null}
+          {blur && <p>This review contains spoilers! Click to see: </p>}
           <p
             id="body-PreReview"
             className={blur ? "blurReview-PreReview" : "normalReview-PreReview"}
           >
             {review.review}
           </p>
+
           {
            
             userID === review.userID ? (
@@ -122,6 +134,7 @@ function PreReview({
               </button>
             ) : null
           } 
+
         </div>
       </div>
     </div>
