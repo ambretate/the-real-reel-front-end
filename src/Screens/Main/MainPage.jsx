@@ -6,7 +6,7 @@ import SearchBar from "../../Components/Search/Search";
 import { getUser } from "../../Services/users.js";
 
 
-function MainPage({ user }) {
+function MainPage({ user, userProfile }) {
   
   const [userInfo, setUserInfo] = useState({});
 
@@ -19,16 +19,16 @@ function MainPage({ user }) {
         console.error("Error getting user:", error);
       }
     }
+    fetchUser();
   })
 
-  fetchUser(user);
 
   return (
     <div className="main-container">
       <div className="user-details">
         <div className="user-detail-section">
             <img
-              src={userInfo.profilePicture}
+              src={user.profilePicture}
               alt="Profile"
               className="user-img"
             />
