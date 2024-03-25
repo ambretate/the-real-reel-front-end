@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import SignIn from "./Screens/Sign/SignIn.jsx";
 import SignUp from "./Screens/Sign/SignUp.jsx";
@@ -15,6 +15,7 @@ import Following from "./Components/Follows/Following.jsx";
 import Follower from "./Components/Follows/Follower.jsx";
 import CreateReview from "./Screens/CreateReview/CreateReview.jsx";
 import UpdateAccount from "./Screens/EditUser/EditUser.jsx";
+import OtherUser from "./Screens/OtherUser/OtherUser.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -49,6 +50,14 @@ function App() {
             </Layout>
           }
         />
+        
+        <Route
+          path="/user/:id"
+          element={
+            <OtherUser />
+          }
+        />
+
         <Route
           path="/catalog"
           element={

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Follower from "../../Components/Follows/Follower.jsx";
 
 function User({ user }) {
+  console.log('huh',user)
   const [follows, setFollows] = useState(null);
 
   useEffect(() => {

@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
-import Header from "../../Components/Header/Header.jsx";
 import MovieBlock from "../../Components/MovieBlock/MovieBlock.jsx";
 import CreateReview from "../CreateReview/CreateReview.jsx";
 import PreReview from "../../Components/PreReview/PreReview.jsx";
-import Footer from "../../Components/Footer/Footer.jsx";
 import { getMovie } from "../../Services/movies.js";
 import { getFollows } from "../../Services/users.js";
 

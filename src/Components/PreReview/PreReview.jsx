@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { deleteReview as deleteReviewService } from "../../Services/reviews.js";
 import { getUser, updateFollowings } from "../../Services/users.js";
+
 import {
   removeUnderscores,
   parseMongoDate,
@@ -75,9 +77,11 @@ function PreReview({
        
         <h2 id="reviewTitle-PreReview">
           <u>{review.title}</u><br></br> 
-          <span className="name-PreReview">
-            By <u className="name-PreReview"> {userName} </u> 
-          </span>
+          <NavLink to={`/user/${userID}`}>
+            <span className="name-PreReview">
+              By <u className="name-PreReview"> {userName} </u> 
+            </span>
+          </NavLink>
         </h2>
         {isFollowingUser ? (
           <button className="follow-button">Followed</button>
