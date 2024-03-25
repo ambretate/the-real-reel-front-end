@@ -15,9 +15,12 @@ import Following from "./Components/Follows/Following.jsx";
 import Follower from "./Components/Follows/Follower.jsx";
 import CreateReview from "./Screens/CreateReview/CreateReview.jsx";
 import UpdateAccount from "./Screens/EditUser/EditUser.jsx";
+import { getUser } from "./Services/users.js";
+
 
 function App() {
   const [user, setUser] = useState(null);
+  const [userProfile, setUserProfile] = useState({});
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -26,6 +29,21 @@ function App() {
     };
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        if (user) {
+          const userInfo = await getUser({ userId: user.id });
+          setUserProfile(userInfo);
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUserInfo();
+  }, [user]);
 
   return (
     <>
@@ -37,7 +55,7 @@ function App() {
           path="/timeline"
           element={
             <Layout user={user}>
-              <MainPage user={user} />
+              <MainPage user={user} userProfile={userProfile} />
             </Layout>
           }
         />

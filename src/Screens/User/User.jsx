@@ -29,7 +29,6 @@ function User({ user }) {
         if (user) {
           const userInfo = await getUser({ userId: user.id });
           setUserProfile(userInfo);
-          console.log(userProfile);
         }
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -42,13 +41,7 @@ function User({ user }) {
   return user ? (
     <div className="user-container">
       <div>
-        {user.profilePicture && (
-          <img
-            src={user.profilePicture}
-            alt="User"
-            className="profile-picture"
-          />
-        )}
+        <img src={userProfile.profilePicture} alt="User" className="profile-picture" />
       </div>
       <div className="user-information">
         <h1>{userProfile.username}</h1>
