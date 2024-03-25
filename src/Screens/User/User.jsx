@@ -27,7 +27,7 @@ function User({ user }) {
     const fetchUserInfo = async () => {
       try {
         if (user) {
-          const userInfo = await getUser({ userId: user.id });
+          const userInfo = await getUser(user.id);
           setUserProfile(userInfo);
         }
       } catch (error) {

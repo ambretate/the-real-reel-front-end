@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./MainPage.css";
 import { Link } from "react-router-dom";
 import Timeline from "../Timeline/Timeline.jsx";
 import SearchBar from "../../Components/Search/Search";
+import { getUser } from "../../Services/users.js";
 
 
-function MainPage({ user, userProfile }) {
+function MainPage({ user }) {
+  
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const item = await getUser(user.userID);
+        setUserInfo(item);
+      } catch (error) {
+        console.error("Error getting user:", error);
+      }
+    }
+  })
+
+  fetchUser(user);
+
   return (
     <div className="main-container">
       <div className="user-details">
         <div className="user-detail-section">
             <img
-              src={userProfile.profilePicture}
+              src={userInfo.profilePicture}
               alt="Profile"
               className="user-img"
             />
