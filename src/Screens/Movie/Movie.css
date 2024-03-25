@@ -38,16 +38,15 @@
   padding-left: 180px;
 }
 
-#backCatalog-PreReview {
-  display: block;
-  margin: 0 0 0 1rem;
-  width: 9rem;
-  background-color: rgba(114, 228, 228, 0.5);
+
+#backCatalog-PreReview button {
+  width: 130px;
+  border-radius: 20px;
+  border: 1px solid white;
+  color: black;
+  margin-left: 20px;
 }
 
-#backCatalog-PreReview:hover {
-  background-color: rgba(114, 228, 228, 1);
-}
 
 
 @media (max-width: 853px) {

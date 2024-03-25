@@ -25,6 +25,7 @@ function Follows() {
         {follows &&
           follows.following.map((follow) => (
             <div className="following-users">
+              <img src={follow.profilePicture} className="following-pictures"/>
               <p>{follow.username}</p>
               <p className="following-p">
                 Following: {follow.following.length}
