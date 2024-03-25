@@ -89,7 +89,7 @@ export const getUserByUsername = async (username) => {
   }
 };
 
-export const getUser = async ({ userId }) => {
+export const getUser = async (userId) => {
   try {
     const resp = await api.get(`/users/${userId}`);
     return resp.data;
