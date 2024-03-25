@@ -1,0 +1,22 @@
+#background-Footer {
+  background-color: #76abae;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.github-footer {
+  height: 30px;
+}
+
+#brand-Footer {
+  margin-right: 1em;
+  position: absolute;
+  right: 0;
+}

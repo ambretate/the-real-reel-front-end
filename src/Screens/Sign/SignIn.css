@@ -1,0 +1,179 @@
+body {
+  font-family: "Julius Sans One", sans-serif;
+}
+
+.signin-container {
+  background-color: #31363f;
+  height: 100vh;
+  display: flex;
+}
+
+.logo-div {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 400px;
+  padding-left: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  color: white;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.form-div h1 {
+  text-align: left;
+  font-size: 50px;
+}
+
+.form-div h3 {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.welcome h1 {
+  margin-bottom: 0;
+}
+
+input#email {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: 30px;
+  color: black;
+}
+
+input#password {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.form button {
+  background: none;
+  border: none;
+  font-family: "Julius Sans One", sans-serif;
+  color: white;
+  cursor: pointer;
+  font-size: larger;
+  margin-bottom: 50px;
+}
+
+.form a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 430px) {
+  body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .logo-div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signin-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .welcome {
+    width: 100%;
+  }
+
+  form.form {
+    width: 70%;
+  }
+
+  form.form label {
+    text-align: left;
+  }
+}
+
+@media (max-width: 853px) {
+  .logo {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .signin-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo-div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  form.form label {
+    text-align: left;
+  }
+
+  form.form {
+    width: 70%;
+  }
+
+  .form-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

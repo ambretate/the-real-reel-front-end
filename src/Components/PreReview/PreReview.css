@@ -1,0 +1,55 @@
+#mainContainer-PreReview {
+  position: relative;
+  background-color: #868686;
+  border-radius: 1rem;
+  width: 70vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+#leftContainer-PreReview {
+  width: 20%;
+}
+
+#rightContainer-PreReview {
+  width: 80%;
+}
+#movieImage-PreReview {
+  border-radius: 1rem;
+  height: 8rem;
+  margin: 1rem;
+  box-shadow: 0 0 10px white;
+}
+
+#bodyContainer-PreReview {
+    z-index: 2;
+}
+
+.blurReview-PreReview {
+    color: rgba(0,0,0,0);
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.follow-button{
+  color: black;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: white;  
+}
+
+.delete-button{
+  color: black;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: white;  
+  margin: 5px;
+}
+
+.spoilerTitle-container{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}

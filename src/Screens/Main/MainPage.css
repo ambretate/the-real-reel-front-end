@@ -1,0 +1,103 @@
+* {
+  color: white;
+}
+
+.main-container {
+  display: flex;
+  height: 86.5vh;
+}
+
+.user-details {
+  width: 30%;
+  height: 80.5vh;
+  background-color: #31363f;
+}
+
+.user-img {
+  width: 75px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.timeline-container {
+  width: 70%;
+  background-color: #222831;
+  height: 94vh;
+  overflow: scroll;
+}
+
+.user-detail-section {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+.user-detail.section {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.user-detail.section2 {
+  margin-bottom: 10px;
+}
+
+.browse-catalog {
+  padding-left: 10px;
+  margin-top: 40px;
+}
+
+@media (max-width: 430px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-details {
+    height: auto;
+    width: 100%;
+  }
+
+  .timeline-container {
+    height: auto;
+    width: 100%;
+  }
+
+  .username-h3 {
+    text-align: left;
+  }
+
+  .movie-review-img {
+    width: 100px;
+  }
+
+  .title-review {
+    text-align: left;
+  }
+
+  .movie-review-details {
+    padding-left: 0;
+  }
+
+  .browse-catalog{
+    text-align: left;
+  }
+
+  h1.latest-reviews{
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .user-detail-section2{
+    text-align: left;
+  }
+
+  #logo-Header{
+    transform: translateY(10%);
+  }
+}
+
+@media (max-width: 853px) {
+/* looks good to me */
+}
