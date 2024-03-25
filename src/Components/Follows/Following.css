@@ -18,6 +18,12 @@
   font-size: small;
 }
 
+.following-pictures{
+  width: 70px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 430px) {
   .following-container {
     padding-left: 0;

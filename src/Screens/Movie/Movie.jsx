@@ -38,7 +38,7 @@ function Movie({ user }) {
       </div>
       <NavLink to="/catalog">
         <div id="backCatalog-PreReview">
-          <p style={{ "text-align": "center" }}>back to Catalog</p>
+          <button>Back to Catalog</button>
         </div>
       </NavLink>
       <div className="review-container">
