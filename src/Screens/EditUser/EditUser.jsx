@@ -69,7 +69,7 @@ function UpdateAccount({ user }) {
         <form onSubmit={handlePassword} className="update-form">
           <label htmlFor="password">New Password:</label>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             value={password.password}
@@ -78,7 +78,7 @@ function UpdateAccount({ user }) {
           <br />
           <label htmlFor="confirmPassword">Confirm New Password:</label>
           <input
-            type="text"
+            type="password"
             id="confirmPassword"
             name="passwordConfirmation"
             value={password.passwordConfirmation}
